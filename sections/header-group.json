@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -14,16 +23,6 @@
         "transparent_home": true,
         "color_scheme": "scheme-4",
         "menu_color_scheme": "scheme-4",
-        "mega_menu_trigger": "SHOP",
-        "mega_menu_heading": "Curated Selection",
-        "mega_menu_text": "Rare fragrances chosen for atmosphere, character, and lasting presence.",
-        "mega_menu_collection_1": "frontpage",
-        "mega_menu_collection_2": "",
-        "mega_menu_collection_3": "",
-        "mega_menu_collection_4": "",
-        "mega_menu_featured_product": "",
-        "mega_menu_featured_label": "Featured Bottle",
-        "mega_menu_featured_cta": "Discover Bottle",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_customer_avatar": false,
