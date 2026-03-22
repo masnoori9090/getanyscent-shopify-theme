@@ -1,0 +1,109 @@
+{
+  "sections": {
+    "hero": {
+      "type": "getanyscent-page-hero",
+      "settings": {
+        "layout": "split",
+        "eyebrow": "About Get Any Scent",
+        "heading": "CURATED FRAGRANCES FOR THE DISCERNING",
+        "text": "<p>Get Any Scent is a considered destination for rare perfume, quiet signatures, and bottles chosen for atmosphere as much as scent.</p>",
+        "button_label": "SHOP COLLECTION",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "note": {
+      "type": "getanyscent-editorial-note",
+      "settings": {
+        "eyebrow": "Our Philosophy",
+        "text": "<p>We believe fragrance should feel personal, composed, and lasting. Every selection is made with an editor's eye for texture, longevity, balance, and presence.</p>"
+      }
+    },
+    "story": {
+      "type": "getanyscent-editorial",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "CRAFTED FOR THOSE WHO KNOW",
+        "text": "<p>From the oud forests of Southeast Asia to the ateliers of Europe, we look for perfumers and houses that build character rather than noise.</p><p>What enters the collection must feel refined on skin, striking in memory, and timeless in mood. That principle guides every bottle, every story, and every recommendation we make.</p>",
+        "link_label": "CONTACT US →",
+        "link": "shopify://pages/contact"
+      }
+    },
+    "page_content": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Aisha K.",
+            "location": "Dubai",
+            "quote": "Beautifully packaged, thoughtfully selected, and far more personal than standard luxury retail.",
+            "rating": 5
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Omar H.",
+            "location": "Abu Dhabi",
+            "quote": "The curation feels disciplined. Every recommendation arrived with the confidence of a private fragrance consultant.",
+            "rating": 5
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Lina S.",
+            "location": "Riyadh",
+            "quote": "I came for one bottle and returned for the experience. The mood, the notes, and the packaging all feel considered.",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "settings": {
+        "heading": "NOTES FROM OUR CLIENTS",
+        "subheading": "For collectors, gift seekers, and fragrance devotees"
+      }
+    },
+    "logos": {
+      "type": "brand-logos",
+      "blocks": {
+        "logo_1": { "type": "logo", "settings": {} },
+        "logo_2": { "type": "logo", "settings": {} },
+        "logo_3": { "type": "logo", "settings": {} },
+        "logo_4": { "type": "logo", "settings": {} }
+      },
+      "block_order": ["logo_1", "logo_2", "logo_3", "logo_4"],
+      "settings": {
+        "heading": "HOUSES, PARTNERS, AND PRESS"
+      }
+    },
+    "newsletter": {
+      "type": "getanyscent-newsletter",
+      "settings": {
+        "eyebrow": "Stay Connected",
+        "heading": "JOIN THE INNER CIRCLE",
+        "text": "Be the first to hear about fresh arrivals, curated selections, and private releases.",
+        "placeholder": "Your email address",
+        "button_label": "SUBSCRIBE",
+        "success_message": "WELCOME TO THE INNER CIRCLE"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "note",
+    "story",
+    "page_content",
+    "testimonials",
+    "logos",
+    "newsletter"
+  ]
+}

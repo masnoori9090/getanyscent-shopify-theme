@@ -1,0 +1,151 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by section.settings.articles_per_page -%}
+  {%- liquid
+    assign featured_article = blog.articles.first
+    assign secondary_one = blog.articles[1]
+    assign secondary_two = blog.articles[2]
+  -%}
+
+  <section class="getanyscent-blog section-{{ section.id }}-padding">
+    <div class="getanyscent-shell">
+      <div class="getanyscent-heading-stack">
+        <div class="gold-divider"></div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="getanyscent-eyebrow">{{ section.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h1 class="getanyscent-heading">{{ blog.title }}</h1>
+        {%- if blog.description != blank -%}
+          <div class="getanyscent-copy rte">{{ blog.description }}</div>
+        {%- endif -%}
+        <div class="gold-divider"></div>
+      </div>
+
+      {%- if featured_article != blank -%}
+        <div class="getanyscent-blog__lead-grid">
+          <a href="{{ featured_article.url }}" class="getanyscent-journal__card getanyscent-journal__card--feature">
+            {%- if featured_article.image != blank -%}
+              {{ featured_article.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '550, 720, 900, 1200, 1500, 1600' }}
+            {%- else -%}
+              <div class="getanyscent-journal__placeholder">
+                <img src="{{ 'gas-ref-journal-featured.jpg' | asset_url }}" alt="{{ featured_article.title | escape }}" width="1600" height="1200" loading="eager">
+              </div>
+            {%- endif -%}
+            <div class="getanyscent-journal__content">
+              <p class="getanyscent-journal__meta">{{ featured_article.tags.first | default: blog.title }} — {{ featured_article.published_at | date: '%B %Y' }}</p>
+              <h2>{{ featured_article.title }}</h2>
+              <p class="getanyscent-journal__excerpt">
+                {{ featured_article.excerpt | strip_html | default: featured_article.content | strip_html | truncate: 160 }}
+              </p>
+            </div>
+          </a>
+
+          <div class="getanyscent-journal__stack">
+            {%- if secondary_one != blank -%}
+              <a href="{{ secondary_one.url }}" class="getanyscent-journal__card">
+                {%- if secondary_one.image != blank -%}
+                  {{ secondary_one.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 550, 750, 1100, 1200' }}
+                {%- else -%}
+                  <div class="getanyscent-journal__placeholder">
+                    <img src="{{ 'gas-ref-journal-2.jpg' | asset_url }}" alt="{{ secondary_one.title | escape }}" width="1200" height="900" loading="lazy">
+                  </div>
+                {%- endif -%}
+                <div class="getanyscent-journal__content">
+                  <p class="getanyscent-journal__meta">{{ secondary_one.tags.first | default: blog.title }} — {{ secondary_one.published_at | date: '%B %Y' }}</p>
+                  <h3>{{ secondary_one.title }}</h3>
+                </div>
+              </a>
+            {%- endif -%}
+
+            {%- if secondary_two != blank -%}
+              <a href="{{ secondary_two.url }}" class="getanyscent-journal__card">
+                {%- if secondary_two.image != blank -%}
+                  {{ secondary_two.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 550, 750, 1100, 1200' }}
+                {%- else -%}
+                  <div class="getanyscent-journal__placeholder">
+                    <img src="{{ 'gas-ref-journal-3.jpg' | asset_url }}" alt="{{ secondary_two.title | escape }}" width="1200" height="900" loading="lazy">
+                  </div>
+                {%- endif -%}
+                <div class="getanyscent-journal__content">
+                  <p class="getanyscent-journal__meta">{{ secondary_two.tags.first | default: blog.title }} — {{ secondary_two.published_at | date: '%B %Y' }}</p>
+                  <h3>{{ secondary_two.title }}</h3>
+                </div>
+              </a>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if blog.articles_count > 3 -%}
+        <div class="getanyscent-blog__grid">
+          {%- for article in blog.articles offset: 3 -%}
+            <article class="getanyscent-blog__item">
+              <a href="{{ article.url }}" class="getanyscent-blog__image">
+                {%- if article.image != blank -%}
+                  {{ article.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '320, 480, 640, 900, 1200' }}
+                {%- else -%}
+                  <img src="{{ 'gas-ref-journal-2.jpg' | asset_url }}" alt="{{ article.title | escape }}" width="1200" height="900" loading="lazy">
+                {%- endif -%}
+              </a>
+              <div class="getanyscent-blog__body">
+                <p class="getanyscent-blog__meta">{{ article.tags.first | default: blog.title }} — {{ article.published_at | date: '%B %Y' }}</p>
+                <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+                <p>{{ article.excerpt | strip_html | default: article.content | strip_html | truncate: 120 }}</p>
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if paginate.pages > 1 -%}
+        <div class="getanyscent-blog__pagination">
+          {%- render 'pagination', paginate: paginate -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Get Any Scent Blog",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Journal" },
+    { "type": "range", "id": "articles_per_page", "label": "Articles per page", "min": 3, "max": 12, "step": 1, "default": 9 },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ]
+}
+{% endschema %}
