@@ -1812,6 +1812,87 @@ body.is-page-leaving .content-for-layout {
     grid-template-columns: 1fr 1fr;
   }
 
+  .collection-hero,
+  .collection-hero__inner {
+    min-height: 34rem;
+  }
+
+  .collection-hero__text-wrapper {
+    padding: 10rem 0 5rem;
+  }
+
+  .facets-vertical.page-width {
+    display: block;
+  }
+
+  .facets-wrapper {
+    margin-bottom: 2.4rem;
+  }
+
+  .product {
+    gap: 4rem;
+  }
+
+  .product__media-wrapper,
+  .product__info-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product__info-container,
+  .product__column-sticky {
+    max-width: none;
+    position: static;
+    top: auto;
+  }
+
+  .product__title {
+    font-size: clamp(2.6rem, 8vw, 4rem);
+  }
+
+  .product__media-list,
+  .thumbnail-slider {
+    gap: 1.2rem;
+  }
+
+  .main-cart-items .cart-items,
+  .cart__footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cart-drawer {
+    width: min(100vw, 42rem);
+    max-width: 100%;
+  }
+
+  .cart-drawer__inner {
+    height: 100%;
+  }
+
+  .footer__blocks-wrapper,
+  .footer-block.grid__item {
+    width: 100%;
+  }
+
+  .footer__blocks-wrapper {
+    row-gap: 3rem;
+  }
+
+  .article-template__hero-container,
+  .article-template__content,
+  .article-template__social-sharing,
+  .article-template__comment-wrapper,
+  .customer table {
+    width: var(--gas-page);
+    max-width: 100%;
+  }
+
+  .customer table {
+    display: block;
+    overflow-x: auto;
+  }
+
   .instagram-feed__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1846,6 +1927,106 @@ body.is-page-leaving .content-for-layout {
     display: none;
   }
 
+  .header {
+    min-height: 6.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .header__heading-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .header__icon,
+  .menu-drawer__menu-item,
+  .button,
+  .shopify-payment-button__button,
+  .quantity__button,
+  .pagination__item,
+  .facet-filters__sort,
+  .select__select {
+    min-height: 4.4rem;
+  }
+
+  .header__icon {
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  .menu-drawer__navigation {
+    padding-top: 5.6rem;
+  }
+
+  .menu-drawer__menu-item {
+    font-size: 2.2rem;
+    padding: 1.4rem 0;
+  }
+
+  .search-modal__content,
+  .predictive-search {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .collection-hero,
+  .collection-hero__inner {
+    min-height: 30rem;
+  }
+
+  .collection-hero__text-wrapper {
+    padding: 9rem 0 4.8rem;
+  }
+
+  .collection-hero__title {
+    font-size: clamp(2.8rem, 10vw, 4.2rem);
+  }
+
+  .facet-filters__field,
+  .facet-filters__field .select,
+  .facets__form,
+  .facets__wrapper {
+    width: 100%;
+  }
+
+  .product {
+    gap: 3rem;
+  }
+
+  .product__title {
+    font-size: clamp(2.4rem, 9vw, 3.6rem);
+  }
+
+  .product-form__input {
+    margin-bottom: 1.6rem;
+  }
+
+  .product-form__input input[type="radio"] + label {
+    min-width: 5.2rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .product-form__buttons,
+  .shopify-payment-button,
+  .product-form__submit,
+  .shopify-payment-button__button,
+  .cart__checkout-button {
+    width: 100%;
+  }
+
+  .main-page-title,
+  .article-template__title {
+    font-size: clamp(2.6rem, 10vw, 4rem);
+  }
+
+  .template-page .rte,
+  .template-page .rte p,
+  .article-template__content,
+  .article-template__content p {
+    font-size: 1.5rem;
+    line-height: 1.85;
+  }
+
   .getanyscent-featured__grid,
   .getanyscent-journal__stack {
     grid-template-columns: 1fr;
@@ -1864,6 +2045,40 @@ body.is-page-leaving .content-for-layout {
 
   .getanyscent-newsletter__form {
     flex-direction: column;
+  }
+
+  .getanyscent-newsletter input[type="email"],
+  .getanyscent-newsletter .getanyscent-button {
+    width: 100%;
+  }
+
+  .cart-drawer {
+    width: 100vw;
+  }
+
+  .cart-drawer__footer,
+  .cart-drawer__items {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .footer__content-top {
+    padding-top: 5rem;
+  }
+
+  .footer-block__details-content,
+  .footer-block__details-content p,
+  .footer .rte,
+  .footer .list-menu__item--link {
+    font-size: 1.35rem;
+    line-height: 1.8;
+  }
+
+  .customer,
+  .customer form,
+  .customer .field,
+  .customer .button {
+    width: 100%;
   }
 
   .instagram-feed__grid {
