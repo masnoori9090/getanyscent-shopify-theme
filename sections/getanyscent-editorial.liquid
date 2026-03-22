@@ -1,4 +1,13 @@
 {%- assign editorial_asset = 'gas-ref-story-botanical.jpg' | asset_url -%}
+{%- liquid
+  assign editorial_target = section.settings.link
+  if editorial_target == blank and section.settings.page != blank
+    assign editorial_target = section.settings.page.url
+  endif
+  if editorial_target == blank
+    assign editorial_target = routes.root_url
+  endif
+-%}
 
 <section class="getanyscent-editorial reveal">
   <div class="getanyscent-shell">
@@ -22,7 +31,7 @@
           <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
           <div class="getanyscent-copy rte">{{ section.settings.text }}</div>
           <div style="margin-top: 2.8rem;">
-            <a href="{{ section.settings.link | default: routes.root_url }}" class="gold-underline-link">
+            <a href="{{ editorial_target }}" class="gold-underline-link">
               {{ section.settings.link_label }}
             </a>
           </div>
@@ -47,6 +56,7 @@
       "label": "Text",
       "default": "<p>We believe fragrance is the most intimate form of self-expression. Each scent in our collection has been personally sourced from master perfumers in Grasse, Dubai, and Kyoto.</p><p>No mass production. No shortcuts. Just pure artistry, bottled for the discerning few.</p>"
     },
+    { "type": "page", "id": "page", "label": "Page source" },
     { "type": "text", "id": "link_label", "label": "Link label", "default": "LEARN MORE →" },
     { "type": "url", "id": "link", "label": "Link" }
   ],

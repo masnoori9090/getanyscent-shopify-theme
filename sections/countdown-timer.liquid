@@ -77,6 +77,13 @@
         <span class="countdown-timer__label">Seconds</span>
       </div>
     </div>
+    {%- if section.settings.button_label != blank -%}
+      <div style="margin-top: 2.4rem;">
+        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button button--secondary">
+          {{ section.settings.button_label }}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -137,7 +144,9 @@
       "label": "End date",
       "info": "Use ISO format, for example 2026-12-31T23:59:59+04:00",
       "default": "2026-12-31T23:59:59+04:00"
-    }
+    },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
   ],
   "presets": [
     {

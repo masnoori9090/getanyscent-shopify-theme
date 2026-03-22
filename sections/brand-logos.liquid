@@ -46,15 +46,24 @@
 
 <section class="brand-logos reveal">
   <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="center" style="margin-bottom: 2.4rem;">
+        <h2 class="h2">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
     <div class="brand-logos__grid">
       {%- for block in section.blocks -%}
-        <div class="brand-logos__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.link != blank -%}
+          <a href="{{ block.settings.link }}" class="brand-logos__item" {{ block.shopify_attributes }}>
+        {%- else -%}
+          <div class="brand-logos__item" {{ block.shopify_attributes }}>
+        {%- endif -%}
           {%- if block.settings.logo != blank -%}
             {{ block.settings.logo | image_url: width: 500 | image_tag: loading: 'lazy', widths: '150, 220, 300, 500' }}
           {%- else -%}
             {{ 'collection-1' | placeholder_svg_tag: 'placeholder-svg' }}
           {%- endif -%}
-        </div>
+        {%- if block.settings.link != blank -%}</a>{%- else -%}</div>{%- endif -%}
       {%- endfor -%}
     </div>
   </div>
@@ -67,6 +76,11 @@
   "class": "section",
   "max_blocks": 8,
   "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
     {
       "type": "paragraph",
       "content": "Use this section for featured houses, press mentions, retail partners, or trusted payment and delivery brands."
@@ -81,6 +95,11 @@
           "type": "image_picker",
           "id": "logo",
           "label": "Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
         }
       ]
     }

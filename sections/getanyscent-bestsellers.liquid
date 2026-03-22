@@ -1,4 +1,10 @@
-{%- assign bestseller_collection = section.settings.collection -%}
+{%- liquid
+  assign bestseller_collection = section.settings.collection
+  assign bestsellers_url = section.settings.view_all_link
+  if bestsellers_url == blank
+    assign bestsellers_url = bestseller_collection.url | default: routes.all_products_collection_url
+  endif
+-%}
 
 <section class="getanyscent-bestsellers reveal">
   <div class="getanyscent-shell">
@@ -27,19 +33,84 @@
               {%- endif -%}
             </a>
             <div class="getanyscent-bestsellers__body">
-              <p class="getanyscent-bestsellers__brand">{{ product.vendor | default: shop.name }}</p>
+              {%- if section.settings.show_vendor -%}
+                <p class="getanyscent-bestsellers__brand">{{ product.vendor | default: shop.name }}</p>
+              {%- endif -%}
               <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
               <p class="getanyscent-bestsellers__size">
-                {%- if variant.title != 'Default Title' -%}{{ variant.title }}{%- else -%}Signature Size{%- endif -%}
+                {%- if variant.title != 'Default Title' -%}{{ variant.title }}{%- else -%}{{ section.settings.default_size_label }}{%- endif -%}
               </p>
               <p class="getanyscent-bestsellers__price">{{ product.price | money }}</p>
               {%- if variant != blank and variant.available -%}
                 {%- form 'product', product, class: 'getanyscent-bestsellers__form' -%}
                   <input type="hidden" name="id" value="{{ variant.id }}">
-                  <button type="submit" class="getanyscent-bestsellers__button">ADD TO BAG</button>
+                  <button type="submit" class="getanyscent-bestsellers__button">{{ section.settings.add_to_bag_label }}</button>
                 {%- endform -%}
               {%- else -%}
-                <a href="{{ product.url }}" class="getanyscent-bestsellers__button">VIEW PRODUCT</a>
+                <a href="{{ product.url }}" class="getanyscent-bestsellers__button">{{ section.settings.view_product_label }}</a>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- elsif section.blocks.size > 0 -%}
+        {%- for block in section.blocks limit: section.settings.products_to_show -%}
+          {%- liquid
+            assign manual_url = block.settings.link
+            assign manual_title = block.settings.title
+            assign manual_brand = block.settings.brand
+            assign manual_price = block.settings.price
+            assign manual_size = block.settings.size
+            assign manual_image = block.settings.image
+            if block.settings.product != blank
+              assign manual_url = block.settings.product.url
+              if manual_title == blank
+                assign manual_title = block.settings.product.title
+              endif
+              if manual_brand == blank
+                assign manual_brand = block.settings.product.vendor
+              endif
+              if manual_price == blank
+                assign manual_price = block.settings.product.price | money
+              endif
+              if manual_image == blank and block.settings.product.featured_media != blank
+                assign manual_image = block.settings.product.featured_media.preview_image
+              endif
+            endif
+            if manual_size == blank
+              assign manual_size = section.settings.default_size_label
+            endif
+            if manual_url == blank
+              assign manual_url = bestsellers_url
+            endif
+            assign manual_variant = blank
+            if block.settings.product != blank
+              assign manual_variant = block.settings.product.selected_or_first_available_variant
+            endif
+          -%}
+          <article class="getanyscent-bestsellers__card" {{ block.shopify_attributes }}>
+            <a href="{{ manual_url }}" class="getanyscent-bestsellers__media">
+              {%- if manual_image != blank -%}
+                {{ manual_image | image_url: width: 900 | image_tag: loading: 'lazy', widths: '320, 480, 640, 900' }}
+              {%- else -%}
+                <div class="getanyscent-bestsellers__placeholder"></div>
+              {%- endif -%}
+            </a>
+            <div class="getanyscent-bestsellers__body">
+              {%- if section.settings.show_vendor and manual_brand != blank -%}
+                <p class="getanyscent-bestsellers__brand">{{ manual_brand }}</p>
+              {%- endif -%}
+              <h3><a href="{{ manual_url }}">{{ manual_title }}</a></h3>
+              <p class="getanyscent-bestsellers__size">{{ manual_size }}</p>
+              {%- if manual_price != blank -%}
+                <p class="getanyscent-bestsellers__price">{{ manual_price }}</p>
+              {%- endif -%}
+              {%- if manual_variant != blank and manual_variant.available -%}
+                {%- form 'product', block.settings.product, class: 'getanyscent-bestsellers__form' -%}
+                  <input type="hidden" name="id" value="{{ manual_variant.id }}">
+                  <button type="submit" class="getanyscent-bestsellers__button">{{ section.settings.add_to_bag_label }}</button>
+                {%- endform -%}
+              {%- else -%}
+                <a href="{{ manual_url }}" class="getanyscent-bestsellers__button">{{ section.settings.view_product_label }}</a>
               {%- endif -%}
             </div>
           </article>
@@ -75,11 +146,13 @@
               </div>
             </div>
             <div class="getanyscent-bestsellers__body">
-              <p class="getanyscent-bestsellers__brand">Get Any Scent</p>
+              {%- if section.settings.show_vendor -%}
+                <p class="getanyscent-bestsellers__brand">Get Any Scent</p>
+              {%- endif -%}
               <h3>{{ fallback_title }}</h3>
               <p class="getanyscent-bestsellers__size">{{ fallback_size }}</p>
               <p class="getanyscent-bestsellers__price">{{ fallback_price }}</p>
-              <a href="{{ routes.all_products_collection_url }}" class="getanyscent-bestsellers__button">ADD TO BAG</a>
+              <a href="{{ routes.all_products_collection_url }}" class="getanyscent-bestsellers__button">{{ section.settings.add_to_bag_label }}</a>
             </div>
           </article>
         {%- endfor -%}
@@ -87,8 +160,8 @@
     </div>
 
     <div class="center" style="margin-top: 4rem;">
-      <a href="{{ bestseller_collection.url | default: routes.all_products_collection_url }}" class="gold-underline-link">
-        SHOP ALL BESTSELLERS
+      <a href="{{ bestsellers_url }}" class="gold-underline-link">
+        {{ section.settings.view_all_label }}
       </a>
     </div>
   </div>
@@ -99,10 +172,32 @@
   "name": "Get Any Scent Bestsellers",
   "tag": "section",
   "class": "section",
+  "max_blocks": 8,
   "settings": [
     { "type": "text", "id": "heading", "label": "Heading", "default": "MOST LOVED" },
     { "type": "collection", "id": "collection", "label": "Collection" },
-    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 4, "max": 8, "step": 1, "default": 6 }
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 4, "max": 8, "step": 1, "default": 6 },
+    { "type": "checkbox", "id": "show_vendor", "label": "Show vendor", "default": true },
+    { "type": "text", "id": "default_size_label", "label": "Default size label", "default": "Signature Size" },
+    { "type": "text", "id": "add_to_bag_label", "label": "Add to bag label", "default": "ADD TO BAG" },
+    { "type": "text", "id": "view_product_label", "label": "View product label", "default": "VIEW PRODUCT" },
+    { "type": "url", "id": "view_all_link", "label": "View all link override" },
+    { "type": "text", "id": "view_all_label", "label": "View all label", "default": "SHOP ALL BESTSELLERS" }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Manual product",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product source" },
+        { "type": "image_picker", "id": "image", "label": "Override image" },
+        { "type": "text", "id": "brand", "label": "Brand override" },
+        { "type": "text", "id": "title", "label": "Title override" },
+        { "type": "text", "id": "size", "label": "Size override" },
+        { "type": "text", "id": "price", "label": "Price override" },
+        { "type": "url", "id": "link", "label": "Link override" }
+      ]
+    }
   ],
   "presets": [{ "name": "Get Any Scent Bestsellers" }]
 }
