@@ -1598,8 +1598,7 @@ body.is-page-leaving .content-for-layout {
 
 .main-page-title,
 .title,
-.product__title,
-.collection-hero__title {
+.product__title {
   color: var(--gas-ink);
   letter-spacing: 0.14em;
 }
