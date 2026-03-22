@@ -1,4 +1,4 @@
-{%- assign hero_asset = 'gas-hero-art.svg' | asset_url -%}
+{%- assign hero_asset = 'gas-ref-hero-bottle.jpg' | asset_url -%}
 
 <section class="getanyscent-hero reveal">
   <div class="getanyscent-hero__grid">
@@ -16,7 +16,6 @@
         <img src="{{ hero_asset }}" alt="Get Any Scent hero artwork" width="1600" height="2000" loading="eager">
       {%- endif -%}
       <div class="getanyscent-hero__mist"></div>
-      <div class="getanyscent-hero__bottle" aria-hidden="true"></div>
     </div>
     <div class="getanyscent-hero__content">
       <div class="getanyscent-hero__content-inner">
@@ -33,7 +32,7 @@
       </div>
     </div>
   </div>
-  <div class="getanyscent-hero__scroll">SCROLL</div>
+  <div class="getanyscent-hero__scroll" aria-hidden="true"></div>
 </section>
 
 {% schema %}

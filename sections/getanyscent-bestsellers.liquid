@@ -46,24 +46,39 @@
         {%- endfor -%}
       {%- else -%}
         {%- for i in (1..4) -%}
+          {%- case forloop.index -%}
+            {%- when 1 -%}
+              {%- assign fallback_asset = 'gas-ref-product-oud-royal.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Oud Royal' -%}
+              {%- assign fallback_size = '50ml' -%}
+              {%- assign fallback_price = '$285' -%}
+            {%- when 2 -%}
+              {%- assign fallback_asset = 'gas-ref-product-noir-botanica.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Noir Botanica' -%}
+              {%- assign fallback_size = '50ml' -%}
+              {%- assign fallback_price = '$245' -%}
+            {%- when 3 -%}
+              {%- assign fallback_asset = 'gas-ref-product-santal-dore.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Santal Dore' -%}
+              {%- assign fallback_size = '50ml' -%}
+              {%- assign fallback_price = '$310' -%}
+            {%- else -%}
+              {%- assign fallback_asset = 'gas-ref-product-cuir-de-nuit.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Cuir de Nuit' -%}
+              {%- assign fallback_size = '50ml' -%}
+              {%- assign fallback_price = '$295' -%}
+          {%- endcase -%}
           <article class="getanyscent-bestsellers__card">
             <div class="getanyscent-bestsellers__media">
-              <div class="getanyscent-bestsellers__placeholder"></div>
+              <div class="getanyscent-bestsellers__placeholder">
+                <img src="{{ fallback_asset }}" alt="{{ fallback_title }}" width="900" height="1200" loading="lazy">
+              </div>
             </div>
             <div class="getanyscent-bestsellers__body">
               <p class="getanyscent-bestsellers__brand">Get Any Scent</p>
-              <h3>
-                {%- case forloop.index -%}
-                  {%- when 1 -%}Midnight Oud{%- when 2 -%}Velvet Iris{%- when 3 -%}Cedar Smoke{%- else -%}Amber Silk{%- endcase -%}
-              </h3>
-              <p class="getanyscent-bestsellers__size">
-                {%- case forloop.index -%}
-                  {%- when 1 -%}100ml{%- when 2 -%}50ml{%- when 3 -%}75ml{%- else -%}100ml{%- endcase -%}
-              </p>
-              <p class="getanyscent-bestsellers__price">
-                {%- case forloop.index -%}
-                  {%- when 1 -%}AED 860{%- when 2 -%}AED 620{%- when 3 -%}AED 540{%- else -%}AED 710{%- endcase -%}
-              </p>
+              <h3>{{ fallback_title }}</h3>
+              <p class="getanyscent-bestsellers__size">{{ fallback_size }}</p>
+              <p class="getanyscent-bestsellers__price">{{ fallback_price }}</p>
               <a href="{{ routes.all_products_collection_url }}" class="getanyscent-bestsellers__button">ADD TO BAG</a>
             </div>
           </article>

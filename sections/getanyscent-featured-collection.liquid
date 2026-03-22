@@ -39,21 +39,31 @@
         {%- endfor -%}
       {%- else -%}
         {%- for i in (1..3) -%}
+          {%- case forloop.index -%}
+            {%- when 1 -%}
+              {%- assign fallback_asset = 'gas-ref-product-oud-royal.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Oud Royal' -%}
+              {%- assign fallback_meta = 'Get Any Scent' -%}
+              {%- assign fallback_price = '$285' -%}
+            {%- when 2 -%}
+              {%- assign fallback_asset = 'gas-ref-product-noir-botanica.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Noir Botanica' -%}
+              {%- assign fallback_meta = 'Get Any Scent' -%}
+              {%- assign fallback_price = '$245' -%}
+            {%- else -%}
+              {%- assign fallback_asset = 'gas-ref-product-santal-dore.jpg' | asset_url -%}
+              {%- assign fallback_title = 'Santal Dore' -%}
+              {%- assign fallback_meta = 'Get Any Scent' -%}
+              {%- assign fallback_price = '$310' -%}
+          {%- endcase -%}
           <a href="{{ collection_url }}" class="getanyscent-featured__card{% if forloop.first %} getanyscent-featured__card--featured{% endif %}">
-            <div class="getanyscent-featured__placeholder"></div>
+            <div class="getanyscent-featured__placeholder">
+              <img src="{{ fallback_asset }}" alt="{{ fallback_title }}" width="1200" height="1600" loading="lazy">
+            </div>
             <div class="getanyscent-featured__content">
-              <p class="getanyscent-featured__meta">
-                {%- case forloop.index -%}
-                  {%- when 1 -%}Oriental{%- when 2 -%}Floral{%- else -%}Woody{%- endcase -%}
-              </p>
-              <h3 class="getanyscent-featured__title">
-                {%- case forloop.index -%}
-                  {%- when 1 -%}Velvet Oud{%- when 2 -%}Nocturne Rose{%- else -%}Cedar Veil{%- endcase -%}
-              </h3>
-              <p class="getanyscent-featured__price">
-                {%- case forloop.index -%}
-                  {%- when 1 -%}AED 780{%- when 2 -%}AED 640{%- else -%}AED 520{%- endcase -%}
-              </p>
+              <p class="getanyscent-featured__meta">{{ fallback_meta }}</p>
+              <h3 class="getanyscent-featured__title">{{ fallback_title }}</h3>
+              <p class="getanyscent-featured__price">{{ fallback_price }}</p>
               <span class="getanyscent-featured__cta">Shop Now</span>
             </div>
           </a>

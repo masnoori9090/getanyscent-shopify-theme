@@ -6,51 +6,121 @@
         "eyebrow": "New Collection",
         "heading": "THE ART OF SCENT",
         "text": "Rare fragrances sourced from the world's finest perfumers.",
-        "button_label": "",
+        "button_label": "EXPLORE COLLECTION",
         "button_link": "shopify://collections/all"
       }
     },
-    "editorial_note": {
-      "type": "getanyscent-editorial-note",
+    "marquee": {
+      "type": "getanyscent-marquee",
       "settings": {
-        "eyebrow": "Curated Fragrances for the Discerning",
-        "text": "<p>Discover rare, niche fragrances sourced from the world's finest perfumers.</p>"
+        "text": "NICHE FRAGRANCES • ARTISAN CRAFTED • WORLDWIDE SHIPPING • SINCE 2024 •"
+      }
+    },
+    "featured_collection": {
+      "type": "getanyscent-featured-collection",
+      "settings": {
+        "heading": "CURATED SELECTIONS",
+        "collection": ""
+      }
+    },
+    "story": {
+      "type": "getanyscent-editorial",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "CRAFTED FOR THOSE WHO KNOW",
+        "text": "<p>Every fragrance in our collection has been carefully sourced from independent perfumers who share our obsession with quality. We do not follow trends, we seek out timeless compositions that become part of your identity.</p><p>From the oud forests of Southeast Asia to the rose fields of Grasse, each ingredient tells a story of craft, patience, and devotion to the art of perfumery.</p>",
+        "link_label": "LEARN MORE →",
+        "link": ""
+      }
+    },
+    "bestsellers": {
+      "type": "getanyscent-bestsellers",
+      "settings": {
+        "heading": "MOST LOVED",
+        "collection": "",
+        "products_to_show": 6
       }
     },
     "journal": {
       "type": "getanyscent-journal",
       "blocks": {
-        "article_1": {
+        "journal_1": {
           "type": "article",
           "settings": {
-            "category": "Fragrance Guide",
-            "date": "March 2026",
-            "title": "How To Build A Fragrance Wardrobe That Lasts Beyond The Season",
-            "excerpt": "A considered approach to daytime freshness, evening depth, and signatures that leave a refined trail."
+            "category": "Guide",
+            "date": "March 2024",
+            "title": "The Art of Fragrance Layering",
+            "excerpt": "Master the subtle technique of combining scents to create your signature.",
+            "link": ""
           }
         },
-        "article_2": {
+        "journal_2": {
           "type": "article",
           "settings": {
-            "category": "Collection Notes",
-            "date": "February 2026",
-            "title": "The New Era Of Oud: Cleaner, Colder, More Refined"
+            "category": "Heritage",
+            "date": "February 2024",
+            "title": "A Journey Through Oud",
+            "excerpt": "From the forests of Assam to your skin, the story of liquid gold.",
+            "link": ""
           }
         },
-        "article_3": {
+        "journal_3": {
           "type": "article",
           "settings": {
-            "category": "Gift Edit",
-            "date": "January 2026",
-            "title": "Five Bottles That Feel Like Quiet Luxury"
+            "category": "Curation",
+            "date": "January 2024",
+            "title": "Scents for the Season",
+            "excerpt": "Our curator's picks for the transitional months ahead.",
+            "link": ""
           }
         }
       },
-      "block_order": ["article_1", "article_2", "article_3"],
+      "block_order": ["journal_1", "journal_2", "journal_3"],
       "settings": {
-        "heading": ""
+        "heading": "THE JOURNAL"
+      }
+    },
+    "instagram": {
+      "type": "instagram-feed",
+      "blocks": {
+        "instagram_1": { "type": "image", "settings": { "link": "" } },
+        "instagram_2": { "type": "image", "settings": { "link": "" } },
+        "instagram_3": { "type": "image", "settings": { "link": "" } },
+        "instagram_4": { "type": "image", "settings": { "link": "" } },
+        "instagram_5": { "type": "image", "settings": { "link": "" } },
+        "instagram_6": { "type": "image", "settings": { "link": "" } }
+      },
+      "block_order": [
+        "instagram_1",
+        "instagram_2",
+        "instagram_3",
+        "instagram_4",
+        "instagram_5",
+        "instagram_6"
+      ],
+      "settings": {
+        "heading": "FOLLOW @GETANYSCENT"
+      }
+    },
+    "newsletter": {
+      "type": "getanyscent-newsletter",
+      "settings": {
+        "eyebrow": "Stay Connected",
+        "heading": "JOIN THE INNER CIRCLE",
+        "text": "Be the first to discover new arrivals and exclusive offers.",
+        "placeholder": "Your email address",
+        "button_label": "SUBSCRIBE"
       }
     }
   },
-  "order": ["hero", "editorial_note", "journal"]
+  "order": [
+    "hero",
+    "marquee",
+    "featured_collection",
+    "story",
+    "bestsellers",
+    "journal",
+    "instagram",
+    "newsletter"
+  ]
 }

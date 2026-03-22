@@ -8,12 +8,47 @@
       </div>
     {%- endif -%}
     <div class="getanyscent-journal__grid">
-      {%- for block in section.blocks -%}
-        {%- liquid
-          assign fallback_asset_name = 'gas-gallery-' | append: forloop.index | append: '.svg'
-          assign fallback_asset = fallback_asset_name | asset_url
-        -%}
-        <a href="{{ block.settings.link | default: '#' }}" class="getanyscent-journal__card">
+      {%- assign featured_block = section.blocks.first -%}
+      {%- if featured_block != blank -%}
+        {%- assign featured_fallback_asset = 'gas-ref-journal-featured.jpg' | asset_url -%}
+        <a href="{{ featured_block.settings.link | default: '#' }}" class="getanyscent-journal__card getanyscent-journal__card--feature">
+          {%- if featured_block.settings.image != blank -%}
+            {{
+              featured_block.settings.image
+              | image_url: width: 1600
+              | image_tag:
+                loading: 'lazy',
+                widths: '550, 720, 900, 1200, 1500, 1600'
+            }}
+          {%- else -%}
+            <div class="getanyscent-journal__placeholder">
+              <img
+                src="{{ featured_fallback_asset }}"
+                alt="{{ featured_block.settings.title | escape }}"
+                width="1600"
+                height="1200"
+                loading="lazy"
+              >
+            </div>
+          {%- endif -%}
+          <div class="getanyscent-journal__content">
+            <p class="getanyscent-journal__meta">{{ featured_block.settings.category }} — {{ featured_block.settings.date }}</p>
+            <h3>{{ featured_block.settings.title }}</h3>
+            {%- if featured_block.settings.excerpt != blank -%}
+              <p class="getanyscent-journal__excerpt">{{ featured_block.settings.excerpt }}</p>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endif -%}
+      <div class="getanyscent-journal__stack">
+        {%- for block in section.blocks offset: 1 -%}
+          {%- case forloop.index -%}
+            {%- when 1 -%}
+              {%- assign fallback_asset = 'gas-ref-journal-2.jpg' | asset_url -%}
+            {%- else -%}
+              {%- assign fallback_asset = 'gas-ref-journal-3.jpg' | asset_url -%}
+          {%- endcase -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="getanyscent-journal__card">
           {%- if block.settings.image != blank -%}
             {{
               block.settings.image
@@ -23,13 +58,15 @@
                 widths: '400, 550, 750, 1100, 1200'
             }}
           {%- else -%}
-            <img
-              src="{{ fallback_asset }}"
-              alt="{{ block.settings.title | escape }}"
-              width="1200"
-              height="1200"
-              loading="lazy"
-            >
+            <div class="getanyscent-journal__placeholder">
+              <img
+                src="{{ fallback_asset }}"
+                alt="{{ block.settings.title | escape }}"
+                width="1200"
+                height="900"
+                loading="lazy"
+              >
+            </div>
           {%- endif -%}
           <div class="getanyscent-journal__content">
             <p class="getanyscent-journal__meta">{{ block.settings.category }} — {{ block.settings.date }}</p>
@@ -39,7 +76,8 @@
             {%- endif -%}
           </div>
         </a>
-      {%- endfor -%}
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </section>
