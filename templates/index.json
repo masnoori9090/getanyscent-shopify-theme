@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,6 +15,8 @@
         "eyebrow": "New Collection",
         "heading": "THE ART OF SCENT",
         "text": "Rare fragrances sourced from the world's finest perfumers.",
+        "button_collection": "",
+        "button_product": "",
         "button_label": "EXPLORE COLLECTION",
         "button_link": "shopify://collections/all"
       }
@@ -18,36 +29,6 @@
     },
     "featured_collection": {
       "type": "getanyscent-featured-collection",
-      "blocks": {
-        "featured_1": {
-          "type": "card",
-          "settings": {
-            "vendor": "Get Any Scent",
-            "title": "Oud Royal",
-            "price": "$285",
-            "link": "shopify://collections/all"
-          }
-        },
-        "featured_2": {
-          "type": "card",
-          "settings": {
-            "vendor": "Get Any Scent",
-            "title": "Noir Botanica",
-            "price": "$245",
-            "link": "shopify://collections/all"
-          }
-        },
-        "featured_3": {
-          "type": "card",
-          "settings": {
-            "vendor": "Get Any Scent",
-            "title": "Santal Dore",
-            "price": "$310",
-            "link": "shopify://collections/all"
-          }
-        }
-      },
-      "block_order": ["featured_1", "featured_2", "featured_3"],
       "settings": {
         "heading": "CURATED SELECTIONS",
         "collection": "",
@@ -55,7 +36,7 @@
         "show_vendor": true,
         "show_price": true,
         "card_cta_label": "Shop Now",
-        "view_all_link": "shopify://collections/all",
+        "view_all_link": "",
         "view_all_label": "VIEW ALL"
       }
     },
@@ -65,6 +46,7 @@
         "eyebrow": "Our Story",
         "heading": "CRAFTED FOR THOSE WHO KNOW",
         "text": "<p>Every fragrance in our collection has been carefully sourced from independent perfumers who share our obsession with quality. We do not follow trends, we seek out timeless compositions that become part of your identity.</p><p>From the oud forests of Southeast Asia to the rose fields of Grasse, each ingredient tells a story of craft, patience, and devotion to the art of perfumery.</p>",
+        "page": "",
         "link_label": "LEARN MORE →",
         "link": ""
       }
@@ -72,122 +54,51 @@
     "bestsellers": {
       "type": "getanyscent-bestsellers",
       "blocks": {
-        "bestseller_1": {
+        "product_card_taL6dG": {
           "type": "product_card",
           "settings": {
-            "brand": "Get Any Scent",
-            "title": "Oud Royal",
-            "size": "50ml",
-            "price": "$285",
-            "link": "shopify://collections/all"
-          }
-        },
-        "bestseller_2": {
-          "type": "product_card",
-          "settings": {
-            "brand": "Get Any Scent",
-            "title": "Noir Botanica",
-            "size": "50ml",
-            "price": "$245",
-            "link": "shopify://collections/all"
-          }
-        },
-        "bestseller_3": {
-          "type": "product_card",
-          "settings": {
-            "brand": "Get Any Scent",
-            "title": "Santal Dore",
-            "size": "50ml",
-            "price": "$310",
-            "link": "shopify://collections/all"
-          }
-        },
-        "bestseller_4": {
-          "type": "product_card",
-          "settings": {
-            "brand": "Get Any Scent",
-            "title": "Cuir de Nuit",
-            "size": "50ml",
-            "price": "$295",
-            "link": "shopify://collections/all"
-          }
-        },
-        "bestseller_5": {
-          "type": "product_card",
-          "settings": {
-            "brand": "Get Any Scent",
-            "title": "Ambre Sacre",
-            "size": "50ml",
-            "price": "$265",
-            "link": "shopify://collections/all"
-          }
-        },
-        "bestseller_6": {
-          "type": "product_card",
-          "settings": {
-            "brand": "Get Any Scent",
-            "title": "Vert Sauvage",
-            "size": "50ml",
-            "price": "$225",
-            "link": "shopify://collections/all"
+            "product": "",
+            "brand": "",
+            "title": "",
+            "size": "",
+            "price": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "bestseller_1",
-        "bestseller_2",
-        "bestseller_3",
-        "bestseller_4",
-        "bestseller_5",
-        "bestseller_6"
+        "product_card_taL6dG"
       ],
       "settings": {
         "heading": "MOST LOVED",
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 6,
         "show_vendor": true,
-        "default_size_label": "50ml",
+        "default_size_label": "Signature Size",
         "add_to_bag_label": "ADD TO BAG",
         "view_product_label": "VIEW PRODUCT",
-        "view_all_link": "shopify://collections/all",
+        "view_all_link": "",
         "view_all_label": "SHOP ALL BESTSELLERS"
       }
     },
     "journal": {
       "type": "getanyscent-journal",
       "blocks": {
-        "journal_1": {
+        "article_AU7Xf7": {
           "type": "article",
           "settings": {
-            "category": "Guide",
-            "date": "March 2024",
-            "title": "The Art of Fragrance Layering",
-            "excerpt": "Master the subtle technique of combining scents to create your signature.",
-            "link": ""
-          }
-        },
-        "journal_2": {
-          "type": "article",
-          "settings": {
-            "category": "Heritage",
-            "date": "February 2024",
-            "title": "A Journey Through Oud",
-            "excerpt": "From the forests of Assam to your skin, the story of liquid gold.",
-            "link": ""
-          }
-        },
-        "journal_3": {
-          "type": "article",
-          "settings": {
-            "category": "Curation",
-            "date": "January 2024",
-            "title": "Scents for the Season",
-            "excerpt": "Our curator's picks for the transitional months ahead.",
+            "image": "shopify://shop_images/glass-with-iced-red-beverage-reflects-on-a-white-table.jpg",
+            "category": "Journal",
+            "date": "March 2026",
+            "title": "How to Build a Fragrance Wardrobe That Lasts Beyond the Season",
+            "excerpt": "A considered approach to daytime freshness, evening depth, and signatures that leave a refined trail.",
             "link": ""
           }
         }
       },
-      "block_order": ["journal_1", "journal_2", "journal_3"],
+      "block_order": [
+        "article_AU7Xf7"
+      ],
       "settings": {
         "heading": "THE JOURNAL"
       }
@@ -195,12 +106,42 @@
     "instagram": {
       "type": "instagram-feed",
       "blocks": {
-        "instagram_1": { "type": "image", "settings": { "link": "" } },
-        "instagram_2": { "type": "image", "settings": { "link": "" } },
-        "instagram_3": { "type": "image", "settings": { "link": "" } },
-        "instagram_4": { "type": "image", "settings": { "link": "" } },
-        "instagram_5": { "type": "image", "settings": { "link": "" } },
-        "instagram_6": { "type": "image", "settings": { "link": "" } }
+        "instagram_1": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "instagram_2": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "instagram_3": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "instagram_4": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "instagram_5": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        },
+        "instagram_6": {
+          "type": "image",
+          "settings": {
+            "link": ""
+          }
+        }
       },
       "block_order": [
         "instagram_1",
@@ -211,8 +152,7 @@
         "instagram_6"
       ],
       "settings": {
-        "heading": "FOLLOW @GETANYSCENT",
-        "overlay_label": ""
+        "heading": "FOLLOW @GETANYSCENT"
       }
     },
     "newsletter": {

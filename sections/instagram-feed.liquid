@@ -36,11 +36,7 @@
           <img src="{{ fallback_asset }}" alt="Get Any Scent gallery artwork {{ forloop.index }}" width="1200" height="1200" loading="lazy">
         {%- endif -%}
         <span class="instagram-feed__overlay">
-          {%- if section.settings.overlay_label != blank -%}
-            {{ section.settings.overlay_label }}
-          {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
-          {%- endif -%}
+          <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
         </span>
       </a>
     {%- endfor -%}
@@ -59,12 +55,6 @@
       "id": "heading",
       "label": "Heading",
       "default": "FOLLOW @GETANYSCENT"
-    },
-    {
-      "type": "text",
-      "id": "overlay_label",
-      "label": "Overlay label",
-      "default": ""
     }
   ],
   "blocks": [
