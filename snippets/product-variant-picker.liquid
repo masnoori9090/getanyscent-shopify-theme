@@ -18,12 +18,34 @@
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
+        assign longest_option_value = 0
+        assign most_words_in_option = 0
+
+        for option_value in option.values
+          capture option_value_text
+            echo option_value
+          endcapture
+          assign option_value_length = option_value_text | strip | size
+          assign option_value_words = option_value_text | strip | split: ' ' | size
+          if option_value_length > longest_option_value
+            assign longest_option_value = option_value_length
+          endif
+          if option_value_words > most_words_in_option
+            assign most_words_in_option = option_value_words
+          endif
+        endfor
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
           if block.settings.picker_type == 'dropdown'
             assign picker_type = 'swatch_dropdown'
           else
             assign picker_type = 'swatch'
+          endif
+        endif
+
+        if picker_type == 'button' and swatch_count == 0
+          if option.values.size > 5 or longest_option_value > 18 or most_words_in_option > 3
+            assign picker_type = 'dropdown'
           endif
         endif
       -%}

@@ -1635,6 +1635,26 @@ body.is-page-leaving .content-for-layout {
   color: var(--gas-offwhite);
 }
 
+.product-form__input--dropdown .form__label {
+  margin-bottom: 0.8rem;
+}
+
+.product-form__input--dropdown .select__select {
+  min-height: 5.8rem;
+  padding-left: 1.8rem;
+  padding-right: 4.8rem;
+  color: var(--gas-ink);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  text-transform: none;
+}
+
+.product-form__input--dropdown .svg-wrapper {
+  right: 1.8rem;
+  color: var(--gas-gold);
+}
+
 .product-form__submit,
 .shopify-payment-button__button,
 .cart__checkout-button,
@@ -2174,6 +2194,11 @@ body.is-page-leaving .content-for-layout {
   .product-form__input input[type="radio"] + label {
     min-width: 5.2rem;
     padding: 1rem 1.6rem;
+  }
+
+  .product-form__input--dropdown .select__select {
+    min-height: 5.4rem;
+    font-size: 1.15rem;
   }
 
   .product-form__buttons,
