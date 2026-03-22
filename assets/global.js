@@ -280,6 +280,17 @@ class QuantityInput extends HTMLElement {
 customElements.define('quantity-input', QuantityInput);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const backToTop = document.querySelector('.getanyscent-backtotop');
+  if (backToTop) {
+    const syncBackToTop = () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.75);
+    };
+
+    syncBackToTop();
+    window.addEventListener('scroll', syncBackToTop, { passive: true });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
   const transparentHeader = document.querySelector('.header-wrapper--transparent-home');
   if (transparentHeader) {
     const syncHeaderState = () => {

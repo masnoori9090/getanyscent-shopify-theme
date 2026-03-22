@@ -160,7 +160,13 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <img
+                src="{{ 'gas-monogram.svg' | asset_url }}"
+                alt="{{ shop.name | escape }}"
+                width="44"
+                height="44"
+                class="header__heading-logo motion-reduce"
+              >
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}
@@ -200,7 +206,13 @@
                 }}
               </div>
             {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
+              <img
+                src="{{ 'gas-monogram.svg' | asset_url }}"
+                alt="{{ shop.name | escape }}"
+                width="44"
+                height="44"
+                class="header__heading-logo"
+              >
             {%- endif -%}
           </a>
       {%- if request.page_type == 'index' -%}

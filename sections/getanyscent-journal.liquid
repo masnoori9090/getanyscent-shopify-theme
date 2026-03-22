@@ -1,0 +1,89 @@
+<section class="getanyscent-journal reveal">
+  <div class="getanyscent-shell">
+    <div class="getanyscent-heading-stack">
+      <div class="gold-divider"></div>
+      <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
+      <div class="gold-divider"></div>
+    </div>
+    <div class="getanyscent-journal__grid">
+      <div>
+        {%- assign feature_block = section.blocks.first -%}
+        {%- if feature_block != blank -%}
+          <a href="{{ feature_block.settings.link | default: '#' }}" class="getanyscent-journal__card getanyscent-journal__card--feature">
+            {%- if feature_block.settings.image != blank -%}
+              {{
+                feature_block.settings.image
+                | image_url: width: 1400
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '550, 720, 960, 1200, 1400'
+              }}
+            {%- else -%}
+              <div class="getanyscent-journal__placeholder"></div>
+            {%- endif -%}
+            <div class="getanyscent-journal__content">
+              <p class="getanyscent-journal__meta">{{ feature_block.settings.category }} — {{ feature_block.settings.date }}</p>
+              <h3>{{ feature_block.settings.title }}</h3>
+              {%- if feature_block.settings.excerpt != blank -%}
+                <p class="getanyscent-journal__excerpt">{{ feature_block.settings.excerpt }}</p>
+              {%- endif -%}
+            </div>
+          </a>
+        {%- endif -%}
+      </div>
+      <div class="getanyscent-journal__stack">
+        {%- for block in section.blocks offset: 1 limit: 2 -%}
+          <a href="{{ block.settings.link | default: '#' }}" class="getanyscent-journal__card">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 550, 750, 1100, 1200'
+              }}
+            {%- else -%}
+              <div class="getanyscent-journal__placeholder"></div>
+            {%- endif -%}
+            <div class="getanyscent-journal__content">
+              <p class="getanyscent-journal__meta">{{ block.settings.category }} — {{ block.settings.date }}</p>
+              <h3>{{ block.settings.title }}</h3>
+            </div>
+          </a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Journal",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "THE JOURNAL" }
+  ],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "category", "label": "Category", "default": "Journal" },
+        { "type": "text", "id": "date", "label": "Date", "default": "March 2026" },
+        { "type": "text", "id": "title", "label": "Title", "default": "How to Build a Fragrance Wardrobe That Lasts Beyond the Season" },
+        { "type": "textarea", "id": "excerpt", "label": "Excerpt", "default": "A considered approach to daytime freshness, evening depth, and signatures that leave a refined trail." },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get Any Scent Journal",
+      "blocks": [{ "type": "article" }, { "type": "article" }, { "type": "article" }]
+    }
+  ]
+}
+{% endschema %}

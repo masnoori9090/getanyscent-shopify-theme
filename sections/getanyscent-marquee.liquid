@@ -1,0 +1,24 @@
+<section class="getanyscent-marquee reveal">
+  <div class="getanyscent-marquee__track">
+    {%- for i in (1..8) -%}
+      <span class="getanyscent-marquee__item">{{ section.settings.text }}</span>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "NICHE FRAGRANCES • ARTISAN CRAFTED • WORLDWIDE SHIPPING • SINCE 2024"
+    }
+  ],
+  "presets": [{ "name": "Get Any Scent Marquee" }]
+}
+{% endschema %}

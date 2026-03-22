@@ -1646,3 +1646,166 @@ textarea,
     padding-right: 1.4rem;
   }
 }
+
+/* Homepage refinements for reference layout */
+
+.gold-divider {
+  width: 6rem;
+  height: 1px;
+  margin: 0 auto 2.4rem;
+  background: rgba(142, 134, 106, 0.35);
+}
+
+.header__heading-logo {
+  width: 4.4rem;
+  height: 4.4rem;
+  object-fit: contain;
+}
+
+.getanyscent-bestsellers {
+  padding: 10rem 0;
+  background: var(--gas-offwhite);
+}
+
+.getanyscent-bestsellers__track {
+  display: flex;
+  gap: 2.4rem;
+  overflow-x: auto;
+  padding-bottom: 1.2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.getanyscent-bestsellers__track::-webkit-scrollbar {
+  display: none;
+}
+
+.getanyscent-bestsellers__card {
+  flex: 0 0 min(31rem, 84vw);
+  scroll-snap-align: start;
+  background: var(--gas-cream);
+  padding: 2.4rem;
+}
+
+.getanyscent-bestsellers__media {
+  display: block;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: linear-gradient(145deg, #e6dccf 0%, #d5c8b1 100%);
+}
+
+.getanyscent-bestsellers__media img,
+.getanyscent-bestsellers__placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.getanyscent-bestsellers__placeholder {
+  background: linear-gradient(145deg, #2d3b29 0%, #19321d 48%, #8e866a 100%);
+}
+
+.getanyscent-bestsellers__body {
+  margin-top: 2rem;
+}
+
+.getanyscent-bestsellers__brand,
+.getanyscent-bestsellers__size {
+  color: rgba(15, 21, 16, 0.55);
+  font-size: 1.05rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.getanyscent-bestsellers__body h3,
+.getanyscent-bestsellers__body h3 a {
+  margin: 0.8rem 0 0;
+  color: var(--gas-ink);
+  font-size: 2.2rem;
+  text-decoration: none;
+}
+
+.getanyscent-bestsellers__price {
+  margin-top: 0.8rem;
+  color: var(--gas-gold);
+  font-size: 1.8rem;
+}
+
+.getanyscent-bestsellers__form {
+  margin-top: 1.8rem;
+}
+
+.getanyscent-bestsellers__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.8rem;
+  width: 100%;
+  border: 1px solid var(--gas-gold);
+  background: transparent;
+  color: var(--gas-gold);
+  font-size: 1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.getanyscent-bestsellers__card:hover .getanyscent-bestsellers__button {
+  opacity: 1;
+}
+
+.getanyscent-bestsellers__button:hover {
+  background: var(--gas-gold);
+  color: var(--gas-forest);
+}
+
+.getanyscent-backtotop {
+  position: fixed;
+  right: 2.4rem;
+  bottom: 9.2rem;
+  width: 4.2rem;
+  height: 4.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(142, 134, 106, 0.35);
+  background: rgba(19, 38, 22, 0.92);
+  color: var(--gas-gold);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+  z-index: 60;
+}
+
+.getanyscent-backtotop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.getanyscent-backtotop:hover {
+  background: var(--gas-gold);
+  color: var(--gas-forest);
+}
+
+@media screen and (max-width: 989px) {
+  .getanyscent-bestsellers {
+    padding: 8rem 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .getanyscent-bestsellers {
+    padding: 7rem 0;
+  }
+
+  .getanyscent-backtotop {
+    width: 3.8rem;
+    height: 3.8rem;
+    right: 1.6rem;
+    bottom: 7.6rem;
+  }
+}

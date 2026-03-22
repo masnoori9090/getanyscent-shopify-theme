@@ -1,0 +1,58 @@
+{%- assign editorial_asset = 'gas-story-art.svg' | asset_url -%}
+
+<section class="getanyscent-editorial reveal">
+  <div class="getanyscent-shell">
+    <div class="getanyscent-editorial__panel">
+      <div class="getanyscent-editorial__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              loading: 'lazy',
+              widths: '550, 720, 900, 1200, 1500, 1800'
+          }}
+        {%- else -%}
+          <img src="{{ editorial_asset }}" alt="Get Any Scent editorial artwork" width="1400" height="1600" loading="lazy">
+        {%- endif -%}
+        <div class="getanyscent-editorial__rings" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="getanyscent-editorial__content">
+        <div class="getanyscent-editorial__content-inner">
+          <p class="getanyscent-eyebrow">{{ section.settings.eyebrow }}</p>
+          <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
+          <div class="getanyscent-copy rte">{{ section.settings.text }}</div>
+          <div style="margin-top: 2.8rem;">
+            <a href="{{ section.settings.link | default: routes.root_url }}" class="gold-underline-link">
+              {{ section.settings.link_label }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Story",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "CRAFTED FOR THOSE WHO KNOW" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>We believe fragrance is the most intimate form of self-expression. Each scent in our collection has been personally sourced from master perfumers in Grasse, Dubai, and Kyoto.</p><p>No mass production. No shortcuts. Just pure artistry, bottled for the discerning few.</p>"
+    },
+    { "type": "text", "id": "link_label", "label": "Link label", "default": "LEARN MORE →" },
+    { "type": "url", "id": "link", "label": "Link" }
+  ],
+  "presets": [{ "name": "Get Any Scent Story" }]
+}
+{% endschema %}

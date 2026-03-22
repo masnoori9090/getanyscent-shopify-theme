@@ -1,127 +1,78 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "THE ART OF SCENT",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "A private edit of rare perfumes, iconic houses, and collector-worthy bottles sourced for those who wear fragrance with intention.",
-            "text_style": "body"
-          }
-        },
-        "buttons": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": ["heading", "text", "buttons"],
+    "hero": {
+      "type": "getanyscent-hero",
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "full_viewport": true,
-        "layout": "full_width",
-        "scroll_label": "SCROLL",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-4",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "eyebrow": "New Collection",
+        "heading": "THE ART OF SCENT",
+        "text": "Rare fragrances sourced from the world's finest perfumers.",
+        "button_label": "EXPLORE COLLECTION",
+        "button_link": "shopify://collections/all"
       }
     },
     "marquee": {
-      "type": "marquee-ticker",
+      "type": "getanyscent-marquee",
       "settings": {
-        "text": "RARE PERFUMES • NICHE HOUSES • AUTHENTIC BOTTLES • GCC DELIVERY • PRIVATE SOURCING",
-        "speed": 30,
-        "bg_color": "#F5F2ED",
-        "text_color": "#8E866A"
+        "text": "NICHE FRAGRANCES • ARTISAN CRAFTED • WORLDWIDE SHIPPING • SINCE 2024"
       }
     },
     "featured_collection": {
-      "type": "featured-collection",
+      "type": "getanyscent-featured-collection",
       "settings": {
-        "title": "THE EDIT",
-        "heading_size": "h1",
+        "heading": "CURATED SELECTIONS",
+        "collection": ""
+      }
+    },
+    "story": {
+      "type": "getanyscent-editorial",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "CRAFTED FOR THOSE WHO KNOW",
+        "text": "<p>We believe fragrance is the most intimate form of self-expression. Each scent in our collection has been personally sourced from master perfumers in Grasse, Dubai, and Kyoto.</p><p>No mass production. No shortcuts. Just pure artistry, bottled for the discerning few.</p>",
+        "link_label": "LEARN MORE →",
+        "link": "shopify://pages/about-us"
+      }
+    },
+    "bestsellers": {
+      "type": "getanyscent-bestsellers",
+      "settings": {
+        "heading": "MOST LOVED",
         "collection": "",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": true,
-        "swipe_on_mobile": true,
-        "image_ratio": "portrait",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "columns_mobile": "1",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "products_to_show": 6
       }
     },
-    "split_feature": {
-      "type": "split-feature",
-      "settings": {
-        "eyebrow": "ABOUT GET ANY SCENT",
-        "heading": "RARE FINDS. QUIET LUXURY. LASTING IMPRESSION.",
-        "text": "<p>Get Any Scent was built for clients who want more than mass-market fragrance. We curate niche perfume houses, hard-to-find signatures, and refined gifting pieces for wardrobes that deserve something memorable.</p><p>Every selection is guided by composition, character, and wearability, from luminous daytime florals to dark resinous evening blends.</p>",
-        "button_label": "READ OUR STORY",
-        "button_link": "shopify://collections/all",
-        "image_position": "right",
-        "panel_color": "#132616",
-        "text_color": "#F5F2ED"
-      }
-    },
-    "testimonials": {
-      "type": "testimonials",
+    "journal": {
+      "type": "getanyscent-journal",
       "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
+        "article_1": {
+          "type": "article",
           "settings": {
-            "name": "Amna K.",
-            "location": "Dubai",
-            "quote": "The curation feels personal and precise. Every order arrives like a luxury gift, with scents that actually stand apart.",
-            "rating": 5
+            "category": "Fragrance Guide",
+            "date": "March 2026",
+            "title": "How To Build A Fragrance Wardrobe That Lasts Beyond The Season",
+            "excerpt": "A considered approach to daytime freshness, evening depth, and signatures that leave a refined trail."
           }
         },
-        "testimonial_2": {
-          "type": "testimonial",
+        "article_2": {
+          "type": "article",
           "settings": {
-            "name": "Yousef A.",
-            "location": "Abu Dhabi",
-            "quote": "Finally, a fragrance store that understands collectors. The presentation is elegant and the selection feels genuinely elevated.",
-            "rating": 5
+            "category": "Collection Notes",
+            "date": "February 2026",
+            "title": "The New Era Of Oud: Cleaner, Colder, More Refined"
           }
         },
-        "testimonial_3": {
-          "type": "testimonial",
+        "article_3": {
+          "type": "article",
           "settings": {
-            "name": "Sara M.",
-            "location": "Sharjah",
-            "quote": "I found a signature scent here after years of searching. The whole experience feels refined, discreet, and beautifully considered.",
-            "rating": 5
+            "category": "Gift Edit",
+            "date": "January 2026",
+            "title": "Five Bottles That Feel Like Quiet Luxury"
           }
         }
       },
-      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
+      "block_order": ["article_1", "article_2", "article_3"],
       "settings": {
-        "heading": "NOTES FROM OUR CLIENTS",
-        "subheading": "For collectors, gift seekers, and fragrance devotees"
+        "heading": "THE JOURNAL"
       }
     },
     "instagram_feed": {
@@ -154,20 +105,19 @@
       },
       "block_order": ["image_1", "image_2", "image_3", "image_4"],
       "settings": {
-        "heading": "FROM THE WORLD OF GET ANY SCENT"
+        "heading": "FOLLOW @GETANYSCENT"
       }
     },
     "newsletter": {
-      "type": "newsletter",
+      "type": "getanyscent-newsletter",
       "settings": {
-        "heading": "JOIN THE PRIVATE LIST",
-        "paragraph": "Receive launch drops, limited allocations, and restock notices before the public.",
-        "color_scheme": "scheme-4",
-        "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "eyebrow": "Stay Connected",
+        "heading": "JOIN THE INNER CIRCLE",
+        "text": "Be the first to discover new arrivals and exclusive offers.",
+        "placeholder": "Your email address",
+        "button_label": "SUBSCRIBE"
       }
     }
   },
-  "order": ["image_banner", "marquee", "featured_collection", "split_feature", "testimonials", "instagram_feed", "newsletter"]
+  "order": ["hero", "marquee", "featured_collection", "story", "bestsellers", "journal", "instagram_feed", "newsletter"]
 }
