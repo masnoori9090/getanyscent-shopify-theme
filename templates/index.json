@@ -6,39 +6,15 @@
         "eyebrow": "New Collection",
         "heading": "THE ART OF SCENT",
         "text": "Rare fragrances sourced from the world's finest perfumers.",
-        "button_label": "EXPLORE COLLECTION",
+        "button_label": "",
         "button_link": "shopify://collections/all"
       }
     },
-    "marquee": {
-      "type": "getanyscent-marquee",
+    "editorial_note": {
+      "type": "getanyscent-editorial-note",
       "settings": {
-        "text": "NICHE FRAGRANCES • ARTISAN CRAFTED • WORLDWIDE SHIPPING • SINCE 2024"
-      }
-    },
-    "featured_collection": {
-      "type": "getanyscent-featured-collection",
-      "settings": {
-        "heading": "CURATED SELECTIONS",
-        "collection": ""
-      }
-    },
-    "story": {
-      "type": "getanyscent-editorial",
-      "settings": {
-        "eyebrow": "Our Story",
-        "heading": "CRAFTED FOR THOSE WHO KNOW",
-        "text": "<p>We believe fragrance is the most intimate form of self-expression. Each scent in our collection has been personally sourced from master perfumers in Grasse, Dubai, and Kyoto.</p><p>No mass production. No shortcuts. Just pure artistry, bottled for the discerning few.</p>",
-        "link_label": "LEARN MORE →",
-        "link": "shopify://pages/about-us"
-      }
-    },
-    "bestsellers": {
-      "type": "getanyscent-bestsellers",
-      "settings": {
-        "heading": "MOST LOVED",
-        "collection": "",
-        "products_to_show": 6
+        "eyebrow": "Curated Fragrances for the Discerning",
+        "text": "<p>Discover rare, niche fragrances sourced from the world's finest perfumers.</p>"
       }
     },
     "journal": {
@@ -72,52 +48,9 @@
       },
       "block_order": ["article_1", "article_2", "article_3"],
       "settings": {
-        "heading": "THE JOURNAL"
-      }
-    },
-    "instagram_feed": {
-      "type": "instagram-feed",
-      "blocks": {
-        "image_1": {
-          "type": "image",
-          "settings": {
-            "link": "https://instagram.com/getanyscent"
-          }
-        },
-        "image_2": {
-          "type": "image",
-          "settings": {
-            "link": "https://instagram.com/getanyscent"
-          }
-        },
-        "image_3": {
-          "type": "image",
-          "settings": {
-            "link": "https://instagram.com/getanyscent"
-          }
-        },
-        "image_4": {
-          "type": "image",
-          "settings": {
-            "link": "https://instagram.com/getanyscent"
-          }
-        }
-      },
-      "block_order": ["image_1", "image_2", "image_3", "image_4"],
-      "settings": {
-        "heading": "FOLLOW @GETANYSCENT"
-      }
-    },
-    "newsletter": {
-      "type": "getanyscent-newsletter",
-      "settings": {
-        "eyebrow": "Stay Connected",
-        "heading": "JOIN THE INNER CIRCLE",
-        "text": "Be the first to discover new arrivals and exclusive offers.",
-        "placeholder": "Your email address",
-        "button_label": "SUBSCRIBE"
+        "heading": ""
       }
     }
   },
-  "order": ["hero", "marquee", "featured_collection", "story", "bestsellers", "journal", "instagram_feed", "newsletter"]
+  "order": ["hero", "editorial_note", "journal"]
 }

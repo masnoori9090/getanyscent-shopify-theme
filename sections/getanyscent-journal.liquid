@@ -1,57 +1,45 @@
 <section class="getanyscent-journal reveal">
   <div class="getanyscent-shell">
-    <div class="getanyscent-heading-stack">
-      <div class="gold-divider"></div>
-      <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
-      <div class="gold-divider"></div>
-    </div>
+    {%- if section.settings.heading != blank -%}
+      <div class="getanyscent-heading-stack">
+        <div class="gold-divider"></div>
+        <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
+        <div class="gold-divider"></div>
+      </div>
+    {%- endif -%}
     <div class="getanyscent-journal__grid">
-      <div>
-        {%- assign feature_block = section.blocks.first -%}
-        {%- if feature_block != blank -%}
-          <a href="{{ feature_block.settings.link | default: '#' }}" class="getanyscent-journal__card getanyscent-journal__card--feature">
-            {%- if feature_block.settings.image != blank -%}
-              {{
-                feature_block.settings.image
-                | image_url: width: 1400
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '550, 720, 960, 1200, 1400'
-              }}
-            {%- else -%}
-              <div class="getanyscent-journal__placeholder"></div>
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign fallback_asset_name = 'gas-gallery-' | append: forloop.index | append: '.svg'
+          assign fallback_asset = fallback_asset_name | asset_url
+        -%}
+        <a href="{{ block.settings.link | default: '#' }}" class="getanyscent-journal__card">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 1200
+              | image_tag:
+                loading: 'lazy',
+                widths: '400, 550, 750, 1100, 1200'
+            }}
+          {%- else -%}
+            <img
+              src="{{ fallback_asset }}"
+              alt="{{ block.settings.title | escape }}"
+              width="1200"
+              height="1200"
+              loading="lazy"
+            >
+          {%- endif -%}
+          <div class="getanyscent-journal__content">
+            <p class="getanyscent-journal__meta">{{ block.settings.category }} — {{ block.settings.date }}</p>
+            <h3>{{ block.settings.title }}</h3>
+            {%- if block.settings.excerpt != blank -%}
+              <p class="getanyscent-journal__excerpt">{{ block.settings.excerpt }}</p>
             {%- endif -%}
-            <div class="getanyscent-journal__content">
-              <p class="getanyscent-journal__meta">{{ feature_block.settings.category }} — {{ feature_block.settings.date }}</p>
-              <h3>{{ feature_block.settings.title }}</h3>
-              {%- if feature_block.settings.excerpt != blank -%}
-                <p class="getanyscent-journal__excerpt">{{ feature_block.settings.excerpt }}</p>
-              {%- endif -%}
-            </div>
-          </a>
-        {%- endif -%}
-      </div>
-      <div class="getanyscent-journal__stack">
-        {%- for block in section.blocks offset: 1 limit: 2 -%}
-          <a href="{{ block.settings.link | default: '#' }}" class="getanyscent-journal__card">
-            {%- if block.settings.image != blank -%}
-              {{
-                block.settings.image
-                | image_url: width: 1200
-                | image_tag:
-                  loading: 'lazy',
-                  widths: '400, 550, 750, 1100, 1200'
-              }}
-            {%- else -%}
-              <div class="getanyscent-journal__placeholder"></div>
-            {%- endif -%}
-            <div class="getanyscent-journal__content">
-              <p class="getanyscent-journal__meta">{{ block.settings.category }} — {{ block.settings.date }}</p>
-              <h3>{{ block.settings.title }}</h3>
-            </div>
-          </a>
-        {%- endfor -%}
-      </div>
+          </div>
+        </a>
+      {%- endfor -%}
     </div>
   </div>
 </section>

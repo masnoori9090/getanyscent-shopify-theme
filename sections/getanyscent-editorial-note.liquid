@@ -1,0 +1,39 @@
+<section class="getanyscent-editorial-note reveal">
+  <div class="getanyscent-shell">
+    <div class="getanyscent-editorial-note__inner">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="getanyscent-editorial-note__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        <div class="getanyscent-editorial-note__text rte">{{ section.settings.text }}</div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Editorial Note",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Curated Fragrances for the Discerning"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Discover rare, niche fragrances sourced from the world's finest perfumers.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get Any Scent Editorial Note"
+    }
+  ]
+}
+{% endschema %}
