@@ -280,6 +280,38 @@ class QuantityInput extends HTMLElement {
 customElements.define('quantity-input', QuantityInput);
 
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+  if (body) {
+    requestAnimationFrame(() => {
+      body.classList.remove('page-transition-preload');
+      body.classList.add('is-page-ready');
+    });
+
+    document.addEventListener('click', (event) => {
+      const link = event.target.closest('a[href]');
+      if (!link) return;
+      if (event.defaultPrevented) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target && link.target !== '_self') return;
+      if (link.hasAttribute('download')) return;
+
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:'))
+        return;
+
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.search === window.location.search && url.hash) return;
+      if (link.closest('[data-no-page-transition], .predictive-search, .menu-drawer, .cart-drawer, .modal')) return;
+
+      event.preventDefault();
+      body.classList.add('is-page-leaving');
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 220);
+    });
+  }
+
   const backToTop = document.querySelector('.getanyscent-backtotop');
   if (backToTop) {
     const syncBackToTop = () => {
@@ -299,6 +331,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     syncHeaderState();
     window.addEventListener('scroll', syncHeaderState, { passive: true });
+  }
+
+  if (window.matchMedia('(min-width: 990px)').matches) {
+    document.querySelectorAll('header-menu .mega-menu').forEach((menu) => {
+      let closeTimer;
+
+      menu.addEventListener('mouseenter', () => {
+        window.clearTimeout(closeTimer);
+        menu.setAttribute('open', '');
+        const summary = menu.querySelector('summary');
+        if (summary) summary.setAttribute('aria-expanded', 'true');
+      });
+
+      menu.addEventListener('mouseleave', () => {
+        closeTimer = window.setTimeout(() => {
+          menu.removeAttribute('open');
+          const summary = menu.querySelector('summary');
+          if (summary) summary.setAttribute('aria-expanded', 'false');
+        }, 120);
+      });
+    });
   }
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

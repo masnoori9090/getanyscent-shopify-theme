@@ -8,8 +8,16 @@
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
+      {%- liquid
+        assign mega_trigger = section.settings.mega_menu_trigger | strip | downcase
+        assign link_title_key = link.title | strip | downcase
+        assign is_curated_mega = false
+        if mega_trigger != blank and link_title_key == mega_trigger
+          assign is_curated_mega = true
+        endif
+      -%}
       <li>
-        {%- if link.links != blank -%}
+        {%- if link.links != blank or is_curated_mega -%}
           <header-menu>
             <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
               <summary
@@ -30,43 +38,197 @@
                 class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                  {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
-                      {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
+                <div class="mega-menu__layout page-width{% if is_curated_mega %} mega-menu__layout--curated{% endif %}">
+                  <div class="mega-menu__nav">
+                    {%- if is_curated_mega and section.settings.mega_menu_heading != blank -%}
+                      <p class="mega-menu__eyebrow">{{ section.settings.mega_menu_heading }}</p>
+                    {%- endif -%}
+                    {%- if is_curated_mega and section.settings.mega_menu_text != blank -%}
+                      <p class="mega-menu__copy">{{ section.settings.mega_menu_text }}</p>
+                    {%- endif -%}
+                    <ul
+                      class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                      role="list"
+                    >
+                      {%- for childlink in link.links -%}
+                        <li>
+                          <a
+                            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                            href="{{ childlink.url }}"
+                            class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                            {% if childlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ childlink.title | escape }}
+                          </a>
+                          {%- if childlink.links != blank -%}
+                            <ul class="list-unstyled mega-menu__sublist" role="list">
+                              {%- for grandchildlink in childlink.links -%}
+                                <li>
+                                  <a
+                                    id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                    href="{{ grandchildlink.url }}"
+                                    class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                    {% if grandchildlink.current %}
+                                      aria-current="page"
+                                    {% endif %}
+                                  >
+                                    {{ grandchildlink.title | escape }}
+                                  </a>
+                                </li>
+                              {%- endfor -%}
+                            </ul>
+                          {%- endif -%}
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  </div>
+
+                  {%- if is_curated_mega -%}
+                    <div class="mega-menu__collections" role="list">
+                      {%- liquid
+                        assign curated_collection = section.settings.mega_menu_collection_1
+                        assign collection_image = blank
+                        if curated_collection != blank
+                          assign collection_image = curated_collection.featured_image
+                          if collection_image == blank and curated_collection.products.first.featured_media != blank
+                            assign collection_image = curated_collection.products.first.featured_media.preview_image
+                          endif
+                        endif
+                      -%}
+                      {%- if curated_collection != blank -%}
+                        <a href="{{ curated_collection.url }}" class="mega-menu__collection-card" role="listitem">
+                          <div class="mega-menu__collection-media">
+                            {%- if collection_image != blank -%}
+                              {{ collection_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '220, 320, 420, 560, 720' }}
+                            {%- else -%}
+                              <img src="{{ 'gas-ref-instagram-1.jpg' | asset_url }}" alt="{{ curated_collection.title | escape }}" width="720" height="900" loading="lazy">
+                            {%- endif -%}
+                          </div>
+                          <div class="mega-menu__collection-copy">
+                            <span class="mega-menu__collection-title">{{ curated_collection.title }}</span>
+                            {%- if curated_collection.description != blank -%}
+                              <span class="mega-menu__collection-text">{{ curated_collection.description | strip_html | truncate: 72 }}</span>
+                            {%- endif -%}
+                          </div>
+                        </a>
                       {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
+
+                      {%- liquid
+                        assign curated_collection = section.settings.mega_menu_collection_2
+                        assign collection_image = blank
+                        if curated_collection != blank
+                          assign collection_image = curated_collection.featured_image
+                          if collection_image == blank and curated_collection.products.first.featured_media != blank
+                            assign collection_image = curated_collection.products.first.featured_media.preview_image
+                          endif
+                        endif
+                      -%}
+                      {%- if curated_collection != blank -%}
+                        <a href="{{ curated_collection.url }}" class="mega-menu__collection-card" role="listitem">
+                          <div class="mega-menu__collection-media">
+                            {%- if collection_image != blank -%}
+                              {{ collection_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '220, 320, 420, 560, 720' }}
+                            {%- else -%}
+                              <img src="{{ 'gas-ref-instagram-2.jpg' | asset_url }}" alt="{{ curated_collection.title | escape }}" width="720" height="900" loading="lazy">
+                            {%- endif -%}
+                          </div>
+                          <div class="mega-menu__collection-copy">
+                            <span class="mega-menu__collection-title">{{ curated_collection.title }}</span>
+                            {%- if curated_collection.description != blank -%}
+                              <span class="mega-menu__collection-text">{{ curated_collection.description | strip_html | truncate: 72 }}</span>
+                            {%- endif -%}
+                          </div>
+                        </a>
+                      {%- endif -%}
+
+                      {%- liquid
+                        assign curated_collection = section.settings.mega_menu_collection_3
+                        assign collection_image = blank
+                        if curated_collection != blank
+                          assign collection_image = curated_collection.featured_image
+                          if collection_image == blank and curated_collection.products.first.featured_media != blank
+                            assign collection_image = curated_collection.products.first.featured_media.preview_image
+                          endif
+                        endif
+                      -%}
+                      {%- if curated_collection != blank -%}
+                        <a href="{{ curated_collection.url }}" class="mega-menu__collection-card" role="listitem">
+                          <div class="mega-menu__collection-media">
+                            {%- if collection_image != blank -%}
+                              {{ collection_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '220, 320, 420, 560, 720' }}
+                            {%- else -%}
+                              <img src="{{ 'gas-ref-instagram-3.jpg' | asset_url }}" alt="{{ curated_collection.title | escape }}" width="720" height="900" loading="lazy">
+                            {%- endif -%}
+                          </div>
+                          <div class="mega-menu__collection-copy">
+                            <span class="mega-menu__collection-title">{{ curated_collection.title }}</span>
+                            {%- if curated_collection.description != blank -%}
+                              <span class="mega-menu__collection-text">{{ curated_collection.description | strip_html | truncate: 72 }}</span>
+                            {%- endif -%}
+                          </div>
+                        </a>
+                      {%- endif -%}
+
+                      {%- liquid
+                        assign curated_collection = section.settings.mega_menu_collection_4
+                        assign collection_image = blank
+                        if curated_collection != blank
+                          assign collection_image = curated_collection.featured_image
+                          if collection_image == blank and curated_collection.products.first.featured_media != blank
+                            assign collection_image = curated_collection.products.first.featured_media.preview_image
+                          endif
+                        endif
+                      -%}
+                      {%- if curated_collection != blank -%}
+                        <a href="{{ curated_collection.url }}" class="mega-menu__collection-card" role="listitem">
+                          <div class="mega-menu__collection-media">
+                            {%- if collection_image != blank -%}
+                              {{ collection_image | image_url: width: 720 | image_tag: loading: 'lazy', widths: '220, 320, 420, 560, 720' }}
+                            {%- else -%}
+                              <img src="{{ 'gas-ref-instagram-4.jpg' | asset_url }}" alt="{{ curated_collection.title | escape }}" width="720" height="900" loading="lazy">
+                            {%- endif -%}
+                          </div>
+                          <div class="mega-menu__collection-copy">
+                            <span class="mega-menu__collection-title">{{ curated_collection.title }}</span>
+                            {%- if curated_collection.description != blank -%}
+                              <span class="mega-menu__collection-text">{{ curated_collection.description | strip_html | truncate: 72 }}</span>
+                            {%- endif -%}
+                          </div>
+                        </a>
+                      {%- endif -%}
+                    </div>
+
+                    {%- if section.settings.mega_menu_featured_product != blank -%}
+                      {%- assign featured_product = section.settings.mega_menu_featured_product -%}
+                      <a href="{{ featured_product.url }}" class="mega-menu__featured-product">
+                        <div class="mega-menu__featured-media">
+                          {%- if featured_product.featured_media != blank -%}
+                            {{
+                              featured_product.featured_media
+                              | image_url: width: 900
+                              | image_tag:
+                                loading: 'lazy',
+                                widths: '320, 480, 640, 900'
+                            }}
+                          {%- else -%}
+                            <img src="{{ 'gas-ref-product-oud-royal.jpg' | asset_url }}" alt="{{ featured_product.title | escape }}" width="900" height="1200" loading="lazy">
+                          {%- endif -%}
+                        </div>
+                        <div class="mega-menu__featured-copy">
+                          <span class="mega-menu__featured-label">{{ section.settings.mega_menu_featured_label }}</span>
+                          <strong>{{ featured_product.title }}</strong>
+                          {%- if featured_product.vendor != blank -%}
+                            <span>{{ featured_product.vendor }}</span>
+                          {%- endif -%}
+                          <span class="mega-menu__featured-price">{{ featured_product.price | money }}</span>
+                          <span class="mega-menu__featured-cta">{{ section.settings.mega_menu_featured_cta }}</span>
+                        </div>
+                      </a>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
               </div>
             </details>
           </header-menu>
