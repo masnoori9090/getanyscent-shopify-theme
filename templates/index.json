@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "hero": {
+      "type": "getanyscent-hero",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "overline": "New Collection",
+        "heading": "THE ART\nOF SCENT",
+        "copy": "<p>Rare fragrances sourced from the world's finest perfumers and translated into a more elevated, editorial Shopify storefront.</p>",
+        "primary_label": "Explore Collection",
+        "primary_link": "shopify://collections/all",
+        "secondary_label": "Shop Bestsellers",
+        "secondary_link": "shopify://collections/all",
+        "scroll_label": "Scroll"
+      }
+    },
+    "marquee": {
+      "type": "getanyscent-marquee",
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "Curated selections"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Rare fragrance houses"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Luxury discovery"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Worldwide shipping"
+          }
+        }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4"],
+      "settings": {
+        "accessibility_label": "Brand highlights"
+      }
+    },
+    "featured_collection": {
+      "type": "getanyscent-featured-collection",
+      "settings": {
+        "collection": "all",
+        "eyebrow": "Curated selections",
+        "heading": "Discover the house signatures",
+        "copy": "<p>Use your bestsellers or newest arrivals here. The first product is intentionally treated like a lead editorial card.</p>",
+        "products_to_show": 3,
+        "show_vendor": false,
+        "card_cta": "Shop now",
+        "button_label": "View all"
+      }
+    },
+    "editorial": {
+      "type": "getanyscent-editorial",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "Crafted for those who know",
+        "copy": "<p>We believe fragrance is one of the most intimate forms of self-expression. Use this section to explain sourcing, ritual, or what makes your assortment distinct.</p>",
+        "link_label": "Learn more"
+      }
+    },
+    "journal": {
+      "type": "getanyscent-journal",
+      "settings": {
+        "eyebrow": "The Journal",
+        "heading": "Stories that deepen the ritual",
+        "copy": "<p>Connect a Shopify blog here for editorials, launch stories, ingredient education, or founder notes.</p>"
+      }
+    },
+    "newsletter": {
+      "type": "getanyscent-newsletter",
+      "settings": {
+        "eyebrow": "Stay Connected",
+        "heading": "Join the inner circle",
+        "copy": "<p>Be the first to hear about new drops, hard-to-find bottles, and private offers.</p>",
+        "placeholder": "Your email address",
+        "button_label": "Subscribe",
+        "success_message": "You're on the list."
+      }
+    }
+  },
+  "order": ["hero", "marquee", "featured_collection", "editorial", "journal", "newsletter"]
+}

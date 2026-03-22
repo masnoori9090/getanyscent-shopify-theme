@@ -1,0 +1,131 @@
+{% liquid
+  assign blog = section.settings.blog
+  assign article_count = 3
+%}
+
+<section class="getanyscent-section getanyscent-journal">
+  <div class="getanyscent-shell">
+    <div class="getanyscent-heading-stack">
+      {% if section.settings.eyebrow != blank %}
+        <p class="getanyscent-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h2 class="getanyscent-heading">{{ section.settings.heading | newline_to_br }}</h2>
+      {% endif %}
+      {% if section.settings.copy != blank %}
+        <div class="getanyscent-copy rte">{{ section.settings.copy }}</div>
+      {% endif %}
+    </div>
+
+    <div class="getanyscent-journal__grid">
+      {% if blog != blank and blog.articles_count > 0 %}
+        {% assign featured_article = blog.articles.first %}
+        <a class="getanyscent-journal__card getanyscent-journal__card--feature" href="{{ featured_article.url }}">
+          {% if featured_article.image != blank %}
+            {{
+              featured_article.image
+              | image_url: width: 1600
+              | image_tag:
+                widths: '750, 1100, 1500, 1600',
+                alt: featured_article.title,
+                loading: 'lazy'
+            }}
+          {% else %}
+            <div class="getanyscent-journal__placeholder"></div>
+          {% endif %}
+          <div class="getanyscent-journal__content">
+            <div class="getanyscent-journal__meta">{{ blog.title }} &middot; {{ featured_article.published_at | date: '%b %d, %Y' }}</div>
+            <h3>{{ featured_article.title }}</h3>
+            <div class="getanyscent-journal__excerpt">
+              {{ featured_article.excerpt_or_content | strip_html | truncatewords: 24 }}
+            </div>
+          </div>
+        </a>
+
+        <div class="getanyscent-journal__stack">
+          {% for article in blog.articles limit: article_count offset: 1 %}
+            <a class="getanyscent-journal__card" href="{{ article.url }}">
+              {% if article.image != blank %}
+                {{
+                  article.image
+                  | image_url: width: 1200
+                  | image_tag:
+                    widths: '533, 720, 940, 1200',
+                    alt: article.title,
+                    loading: 'lazy'
+                }}
+              {% else %}
+                <div class="getanyscent-journal__placeholder"></div>
+              {% endif %}
+              <div class="getanyscent-journal__content">
+                <div class="getanyscent-journal__meta">{{ blog.title }} &middot; {{ article.published_at | date: '%b %d, %Y' }}</div>
+                <h3>{{ article.title }}</h3>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="getanyscent-journal__card getanyscent-journal__card--feature">
+          <div class="getanyscent-journal__placeholder"></div>
+          <div class="getanyscent-journal__content">
+            <div class="getanyscent-journal__meta">Journal &middot; Placeholder</div>
+            <h3>Connect this section to a blog</h3>
+            <div class="getanyscent-journal__excerpt">Add a blog in the theme editor to turn these editorial cards live.</div>
+          </div>
+        </div>
+        <div class="getanyscent-journal__stack">
+          {% for i in (1..2) %}
+            <div class="getanyscent-journal__card">
+              <div class="getanyscent-journal__placeholder"></div>
+              <div class="getanyscent-journal__content">
+                <div class="getanyscent-journal__meta">Journal &middot; Placeholder</div>
+                <h3>Editorial story card</h3>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Journal",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Journal"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Stories that deepen the ritual"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>Connect a Shopify blog here to mirror the editorial storytelling from the React reference site.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get Any Scent Journal"
+    }
+  ]
+}
+{% endschema %}

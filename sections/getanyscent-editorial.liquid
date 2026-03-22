@@ -1,0 +1,103 @@
+<section class="getanyscent-section getanyscent-editorial">
+  <div class="getanyscent-shell">
+    <div class="getanyscent-editorial__panel">
+      <div class="getanyscent-editorial__media">
+        {% if section.settings.image != blank %}
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              widths: '750, 1100, 1500, 1800',
+              alt: section.settings.heading,
+              loading: 'lazy'
+          }}
+        {% endif %}
+
+        <div class="getanyscent-editorial__rings" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="getanyscent-editorial__content">
+        <div class="getanyscent-editorial__content-inner">
+          {% if section.settings.eyebrow != blank %}
+            <p class="getanyscent-eyebrow">{{ section.settings.eyebrow }}</p>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2 class="getanyscent-heading">{{ section.settings.heading | newline_to_br }}</h2>
+          {% endif %}
+          {% if section.settings.copy != blank %}
+            <div class="getanyscent-copy rte">{{ section.settings.copy }}</div>
+          {% endif %}
+          {% if section.settings.link_label != blank %}
+            <a
+              class="getanyscent-button"
+              {% if section.settings.link != blank %}
+                href="{{ section.settings.link }}"
+              {% else %}
+                role="link"
+                aria-disabled="true"
+              {% endif %}
+            >
+              {{ section.settings.link_label }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Editorial",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Story"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crafted for those who know"
+    },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Copy",
+      "default": "<p>Use this section to explain your point of view, sourcing, or discovery process with more depth than a standard image-with-text block.</p>"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get Any Scent Editorial"
+    }
+  ]
+}
+{% endschema %}
