@@ -11,22 +11,36 @@
 </style>
 
 <div class="template-404 page-width page-margin center getanyscent-404">
-  <p class="getanyscent-404__eyebrow">{{ 'templates.404.subtext' | t }}</p>
-  <h1 class="title">
-    {{ 'templates.404.title' | t }}
-  </h1>
-  <p class="getanyscent-404__copy">Search the archive or return to the collection floor.</p>
-  <form action="{{ routes.search_url }}" method="get" role="search" class="getanyscent-404__search">
-    <input
-      type="search"
-      name="q"
-      value=""
-      placeholder="{{ 'general.search.search' | t }}"
-      aria-label="{{ 'general.search.search' | t }}"
+  <div class="getanyscent-404__inner">
+    <img
+      src="{{ 'gas-monogram.svg' | asset_url }}"
+      alt="{{ shop.name | escape }}"
+      width="60"
+      height="60"
+      class="getanyscent-404__monogram"
     >
-    <button type="submit" class="button button--secondary">{{ 'general.search.search' | t }}</button>
-  </form>
-  <a href="{{ routes.root_url }}" class="button button--secondary">
-    RETURN HOME
-  </a>
+    <p class="getanyscent-404__eyebrow">{{ 'templates.404.subtext' | t }}</p>
+    <h1 class="title">
+      {{ 'templates.404.title' | t }}
+    </h1>
+    <p class="getanyscent-404__copy">Search the journal, explore the collections, or return to the home page.</p>
+    <form action="{{ routes.search_url }}" method="get" role="search" class="getanyscent-404__search">
+      <input
+        type="search"
+        name="q"
+        value=""
+        placeholder="{{ 'general.search.search' | t }}"
+        aria-label="{{ 'general.search.search' | t }}"
+      >
+      <button type="submit" class="button button--secondary">{{ 'general.search.search' | t }}</button>
+    </form>
+    <div class="getanyscent-404__actions">
+      <a href="{{ routes.root_url }}" class="button button--secondary">
+        RETURN HOME
+      </a>
+      <a href="{{ routes.all_products_collection_url }}" class="button button--secondary">
+        SHOP COLLECTION
+      </a>
+    </div>
+  </div>
 </div>

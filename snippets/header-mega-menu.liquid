@@ -200,8 +200,13 @@
                       {%- endif -%}
                     </div>
 
-                    {%- if section.settings.mega_menu_featured_product != blank -%}
-                      {%- assign featured_product = section.settings.mega_menu_featured_product -%}
+                    {%- liquid
+                      assign featured_product = section.settings.mega_menu_featured_product
+                      if featured_product == blank and section.settings.mega_menu_collection_1 != blank and section.settings.mega_menu_collection_1.products.first != blank
+                        assign featured_product = section.settings.mega_menu_collection_1.products.first
+                      endif
+                    -%}
+                    {%- if featured_product != blank -%}
                       <a href="{{ featured_product.url }}" class="mega-menu__featured-product">
                         <div class="mega-menu__featured-media">
                           {%- if featured_product.featured_media != blank -%}
