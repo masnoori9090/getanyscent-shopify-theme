@@ -240,8 +240,7 @@ button {
   z-index: 20;
 }
 
-.template-index .shopify-section-group-header-group,
-.template-index .section-header {
+.template-index .shopify-section-group-header-group {
   position: absolute;
   top: 0;
   left: 0;
@@ -263,6 +262,7 @@ button {
   width: 100%;
   background: transparent;
   border-bottom-color: transparent;
+  backdrop-filter: none;
   box-shadow: none;
 }
 
@@ -1228,8 +1228,7 @@ button {
     --gas-page: calc(100vw - 2.4rem);
   }
 
-  .template-index .shopify-section-group-header-group,
-  .template-index .section-header {
+  .template-index .shopify-section-group-header-group {
     position: absolute;
   }
 
