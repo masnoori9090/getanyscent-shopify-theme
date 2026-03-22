@@ -1,4 +1,16 @@
 {%- assign countdown_id = 'Countdown-' | append: section.id -%}
+{%- liquid
+  assign countdown_target = section.settings.button_link
+  if countdown_target == blank and section.settings.button_collection != blank
+    assign countdown_target = section.settings.button_collection.url
+  endif
+  if countdown_target == blank and section.settings.button_product != blank
+    assign countdown_target = section.settings.button_product.url
+  endif
+  if countdown_target == blank
+    assign countdown_target = routes.all_products_collection_url
+  endif
+-%}
 {%- style -%}
   #shopify-section-{{ section.id }} .countdown-timer {
     padding: 8rem 0;
@@ -79,7 +91,7 @@
     </div>
     {%- if section.settings.button_label != blank -%}
       <div style="margin-top: 2.4rem;">
-        <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="button button--secondary">
+        <a href="{{ countdown_target }}" class="button button--secondary">
           {{ section.settings.button_label }}
         </a>
       </div>
@@ -145,6 +157,8 @@
       "info": "Use ISO format, for example 2026-12-31T23:59:59+04:00",
       "default": "2026-12-31T23:59:59+04:00"
     },
+    { "type": "collection", "id": "button_collection", "label": "Button collection source" },
+    { "type": "product", "id": "button_product", "label": "Button product source" },
     { "type": "text", "id": "button_label", "label": "Button label" },
     { "type": "url", "id": "button_link", "label": "Button link" }
   ],

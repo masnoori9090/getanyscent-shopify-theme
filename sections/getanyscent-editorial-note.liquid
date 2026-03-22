@@ -1,14 +1,30 @@
+{%- liquid
+  assign note_target = section.settings.link
+  assign note_text = section.settings.text
+  if section.settings.page != blank
+    if note_target == blank
+      assign note_target = section.settings.page.url
+    endif
+    if note_text == blank and section.settings.page.content != blank
+      assign note_text = section.settings.page.content | strip_html | truncate: 220
+    endif
+  endif
+  if note_target == blank
+    assign note_target = routes.root_url
+  endif
+-%}
+
 <section class="getanyscent-editorial-note reveal">
   <div class="getanyscent-shell">
     <div class="getanyscent-editorial-note__inner">
       {%- if section.settings.eyebrow != blank -%}
         <p class="getanyscent-editorial-note__eyebrow">{{ section.settings.eyebrow }}</p>
       {%- endif -%}
-      {%- if section.settings.text != blank -%}
-        <div class="getanyscent-editorial-note__text rte">{{ section.settings.text }}</div>
+      {%- if note_text != blank -%}
+        <div class="getanyscent-editorial-note__text rte">{{ note_text }}</div>
       {%- endif -%}
       {%- if section.settings.link_label != blank -%}
-        <a href="{{ section.settings.link | default: routes.root_url }}" class="gold-underline-link">{{ section.settings.link_label }}</a>
+        <a href="{{ note_target }}" class="gold-underline-link">{{ section.settings.link_label }}</a>
       {%- endif -%}
     </div>
   </div>
@@ -32,6 +48,7 @@
       "label": "Text",
       "default": "<p>Discover rare, niche fragrances sourced from the world's finest perfumers.</p>"
     },
+    { "type": "page", "id": "page", "label": "Page source" },
     { "type": "text", "id": "link_label", "label": "Link label" },
     { "type": "url", "id": "link", "label": "Link" }
   ],

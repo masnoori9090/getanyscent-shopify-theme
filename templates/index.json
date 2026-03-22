@@ -15,10 +15,10 @@
         "eyebrow": "New Collection",
         "heading": "THE ART OF SCENT",
         "text": "Rare fragrances sourced from the world's finest perfumers.",
-        "button_collection": "",
+        "button_collection": "frontpage",
         "button_product": "",
         "button_label": "EXPLORE COLLECTION",
-        "button_link": "shopify://collections/all"
+        "button_link": ""
       }
     },
     "marquee": {
@@ -31,7 +31,7 @@
       "type": "getanyscent-featured-collection",
       "settings": {
         "heading": "CURATED SELECTIONS",
-        "collection": "",
+        "collection": "frontpage",
         "products_to_show": 3,
         "show_vendor": true,
         "show_price": true,
@@ -101,6 +101,9 @@
       ],
       "settings": {
         "heading": "THE JOURNAL"
+        ,
+        "blog": "news",
+        "articles_to_show": 3
       }
     },
     "instagram": {
