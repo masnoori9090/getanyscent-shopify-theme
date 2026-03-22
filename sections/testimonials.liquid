@@ -1,3 +1,12 @@
+{%- liquid
+  assign testimonials_definition = blank
+  assign testimonials_count = section.blocks.size
+  if section.settings.metaobject_definition_handle != blank and metaobjects[section.settings.metaobject_definition_handle] != blank
+    assign testimonials_definition = metaobjects[section.settings.metaobject_definition_handle]
+    assign testimonials_count = testimonials_definition.values_count | at_most: section.settings.metaobject_limit
+  endif
+-%}
+
 {%- style -%}
   #shopify-section-{{ section.id }} .testimonials {
     padding: 8rem 0;
@@ -17,7 +26,7 @@
 
   #shopify-section-{{ section.id }} .testimonials__grid {
     display: grid;
-    grid-template-columns: repeat({{ section.blocks.size | at_least: 1 | at_most: 3 }}, minmax(0, 1fr));
+    grid-template-columns: repeat({{ testimonials_count | at_least: 1 | at_most: 3 }}, minmax(0, 1fr));
     gap: 2rem;
   }
 
@@ -75,27 +84,52 @@
       {%- endif -%}
     </div>
     <div class="testimonials__grid">
-      {%- for block in section.blocks -%}
-        <article class="testimonial-card" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
-            <div class="testimonial-card__avatar">
-              {{ block.settings.image | image_url: width: 220 | image_tag: loading: 'lazy', widths: '80, 120, 160, 220' }}
-            </div>
-          {%- endif -%}
-          <div class="testimonial-card__rating" aria-label="{{ block.settings.rating }} out of 5 stars">
-            {%- for i in (1..5) -%}
-              <span>{% if i <= block.settings.rating %}&#9733;{% else %}&#9734;{% endif %}</span>
-            {%- endfor -%}
-          </div>
-          <blockquote>{{ block.settings.quote }}</blockquote>
-          <p class="testimonial-card__meta">
-            {{ block.settings.name }}
-            {%- if block.settings.location != blank -%}
-              / {{ block.settings.location }}
+      {%- if testimonials_definition != blank and testimonials_definition.values_count > 0 -%}
+        {%- for entry in testimonials_definition.values limit: section.settings.metaobject_limit -%}
+          {%- assign rating_value = entry.rating.value | default: 5 | plus: 0 -%}
+          <article class="testimonial-card">
+            {%- if entry.image.value != blank -%}
+              <div class="testimonial-card__avatar">
+                {{ entry.image.value | image_url: width: 220 | image_tag: loading: 'lazy', widths: '80, 120, 160, 220' }}
+              </div>
             {%- endif -%}
-          </p>
-        </article>
-      {%- endfor -%}
+            <div class="testimonial-card__rating" aria-label="{{ rating_value }} out of 5 stars">
+              {%- for i in (1..5) -%}
+                <span>{% if i <= rating_value %}&#9733;{% else %}&#9734;{% endif %}</span>
+              {%- endfor -%}
+            </div>
+            <blockquote>{{ entry.quote.value }}</blockquote>
+            <p class="testimonial-card__meta">
+              {{ entry.name.value }}
+              {%- if entry.location.value != blank -%}
+                / {{ entry.location.value }}
+              {%- endif -%}
+            </p>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <article class="testimonial-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <div class="testimonial-card__avatar">
+                {{ block.settings.image | image_url: width: 220 | image_tag: loading: 'lazy', widths: '80, 120, 160, 220' }}
+              </div>
+            {%- endif -%}
+            <div class="testimonial-card__rating" aria-label="{{ block.settings.rating }} out of 5 stars">
+              {%- for i in (1..5) -%}
+                <span>{% if i <= block.settings.rating %}&#9733;{% else %}&#9734;{% endif %}</span>
+              {%- endfor -%}
+            </div>
+            <blockquote>{{ block.settings.quote }}</blockquote>
+            <p class="testimonial-card__meta">
+              {{ block.settings.name }}
+              {%- if block.settings.location != blank -%}
+                / {{ block.settings.location }}
+              {%- endif -%}
+            </p>
+          </article>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -118,6 +152,21 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "For collectors, gift seekers, and fragrance devotees"
+    },
+    {
+      "type": "text",
+      "id": "metaobject_definition_handle",
+      "label": "Metaobject definition handle",
+      "info": "Optional. Example: testimonials. Expected fields: image, name, location, quote, rating."
+    },
+    {
+      "type": "range",
+      "id": "metaobject_limit",
+      "label": "Metaobject items to show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 3
     }
   ],
   "blocks": [

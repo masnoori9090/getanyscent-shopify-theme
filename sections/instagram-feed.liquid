@@ -1,3 +1,10 @@
+{%- liquid
+  assign social_definition = blank
+  if section.settings.metaobject_definition_handle != blank and metaobjects[section.settings.metaobject_definition_handle] != blank
+    assign social_definition = metaobjects[section.settings.metaobject_definition_handle]
+  endif
+-%}
+
 <section class="instagram-feed reveal">
   <div class="page-width">
     <div class="instagram-feed__header">
@@ -5,41 +12,78 @@
     </div>
   </div>
   <div class="instagram-feed__grid">
-    {%- for block in section.blocks -%}
-      {%- liquid
-        case forloop.index
-          when 1
-            assign fallback_asset = 'gas-ref-instagram-1.jpg' | asset_url
-          when 2
-            assign fallback_asset = 'gas-ref-instagram-2.jpg' | asset_url
-          when 3
-            assign fallback_asset = 'gas-ref-instagram-3.jpg' | asset_url
-          when 4
-            assign fallback_asset = 'gas-ref-instagram-4.jpg' | asset_url
-          when 5
-            assign fallback_asset = 'gas-ref-instagram-5.jpg' | asset_url
-          else
-            assign fallback_asset = 'gas-ref-instagram-6.jpg' | asset_url
-        endcase
-      -%}
-      <a
-        class="instagram-feed__item"
-        href="{{ block.settings.link | default: '#' }}"
-        {% if block.settings.link != blank %}
-          target="_blank" rel="noopener noreferrer"
-        {% endif %}
-        {{ block.shopify_attributes }}
-      >
-        {%- if block.settings.image != blank -%}
-          {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '300, 550, 750, 1100, 1500' }}
-        {%- else -%}
-          <img src="{{ fallback_asset }}" alt="Get Any Scent gallery artwork {{ forloop.index }}" width="1200" height="1200" loading="lazy">
-        {%- endif -%}
-        <span class="instagram-feed__overlay">
-          <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
-        </span>
-      </a>
-    {%- endfor -%}
+    {%- if social_definition != blank and social_definition.values_count > 0 -%}
+      {%- for entry in social_definition.values limit: section.settings.metaobject_limit -%}
+        {%- liquid
+          case forloop.index
+            when 1
+              assign fallback_asset = 'gas-ref-instagram-1.jpg' | asset_url
+            when 2
+              assign fallback_asset = 'gas-ref-instagram-2.jpg' | asset_url
+            when 3
+              assign fallback_asset = 'gas-ref-instagram-3.jpg' | asset_url
+            when 4
+              assign fallback_asset = 'gas-ref-instagram-4.jpg' | asset_url
+            when 5
+              assign fallback_asset = 'gas-ref-instagram-5.jpg' | asset_url
+            else
+              assign fallback_asset = 'gas-ref-instagram-6.jpg' | asset_url
+          endcase
+        -%}
+        <a
+          class="instagram-feed__item"
+          href="{{ entry.link.value | default: '#' }}"
+          {% if entry.link.value != blank %}
+            target="_blank" rel="noopener noreferrer"
+          {% endif %}
+        >
+          {%- if entry.image.value != blank -%}
+            {{ entry.image.value | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '300, 550, 750, 1100, 1500' }}
+          {%- else -%}
+            <img src="{{ fallback_asset }}" alt="Get Any Scent gallery artwork {{ forloop.index }}" width="1200" height="1200" loading="lazy">
+          {%- endif -%}
+          <span class="instagram-feed__overlay">
+            <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
+          </span>
+        </a>
+      {%- endfor -%}
+    {%- else -%}
+      {%- for block in section.blocks -%}
+        {%- liquid
+          case forloop.index
+            when 1
+              assign fallback_asset = 'gas-ref-instagram-1.jpg' | asset_url
+            when 2
+              assign fallback_asset = 'gas-ref-instagram-2.jpg' | asset_url
+            when 3
+              assign fallback_asset = 'gas-ref-instagram-3.jpg' | asset_url
+            when 4
+              assign fallback_asset = 'gas-ref-instagram-4.jpg' | asset_url
+            when 5
+              assign fallback_asset = 'gas-ref-instagram-5.jpg' | asset_url
+            else
+              assign fallback_asset = 'gas-ref-instagram-6.jpg' | asset_url
+          endcase
+        -%}
+        <a
+          class="instagram-feed__item"
+          href="{{ block.settings.link | default: '#' }}"
+          {% if block.settings.link != blank %}
+            target="_blank" rel="noopener noreferrer"
+          {% endif %}
+          {{ block.shopify_attributes }}
+        >
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '300, 550, 750, 1100, 1500' }}
+          {%- else -%}
+            <img src="{{ fallback_asset }}" alt="Get Any Scent gallery artwork {{ forloop.index }}" width="1200" height="1200" loading="lazy">
+          {%- endif -%}
+          <span class="instagram-feed__overlay">
+            <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
+          </span>
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
   </div>
 </section>
 
@@ -55,6 +99,21 @@
       "id": "heading",
       "label": "Heading",
       "default": "FOLLOW @GETANYSCENT"
+    },
+    {
+      "type": "text",
+      "id": "metaobject_definition_handle",
+      "label": "Metaobject definition handle",
+      "info": "Optional. Example: social_gallery. Expected fields: image, link."
+    },
+    {
+      "type": "range",
+      "id": "metaobject_limit",
+      "label": "Metaobject items to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
     }
   ],
   "blocks": [
