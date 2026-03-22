@@ -51,6 +51,20 @@
             assign manual_vendor = block.settings.vendor
             assign manual_price = block.settings.price
             assign manual_image = block.settings.image
+            case forloop.index
+              when 1
+                assign fallback_asset = 'gas-ref-product-oud-royal.jpg' | asset_url
+              when 2
+                assign fallback_asset = 'gas-ref-product-noir-botanica.jpg' | asset_url
+              when 3
+                assign fallback_asset = 'gas-ref-product-santal-dore.jpg' | asset_url
+              when 4
+                assign fallback_asset = 'gas-ref-product-ambre-sacre.jpg' | asset_url
+              when 5
+                assign fallback_asset = 'gas-ref-product-vert-sauvage.jpg' | asset_url
+              else
+                assign fallback_asset = 'gas-ref-product-cuir-de-nuit.jpg' | asset_url
+            endcase
             if block.settings.product != blank
               assign manual_url = block.settings.product.url
               if manual_title == blank
@@ -75,7 +89,9 @@
               {%- if manual_image != blank -%}
                 {{ manual_image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '400, 550, 750, 1100, 1200' }}
               {%- else -%}
-                <div class="getanyscent-featured__placeholder"></div>
+                <div class="getanyscent-featured__placeholder">
+                  <img src="{{ fallback_asset }}" alt="{{ manual_title | escape }}" width="1200" height="1600" loading="lazy">
+                </div>
               {%- endif -%}
             </div>
             <div class="getanyscent-featured__content">

@@ -18,9 +18,45 @@
     },
     "featured_collection": {
       "type": "getanyscent-featured-collection",
+      "blocks": {
+        "featured_1": {
+          "type": "card",
+          "settings": {
+            "vendor": "Get Any Scent",
+            "title": "Oud Royal",
+            "price": "$285",
+            "link": "shopify://collections/all"
+          }
+        },
+        "featured_2": {
+          "type": "card",
+          "settings": {
+            "vendor": "Get Any Scent",
+            "title": "Noir Botanica",
+            "price": "$245",
+            "link": "shopify://collections/all"
+          }
+        },
+        "featured_3": {
+          "type": "card",
+          "settings": {
+            "vendor": "Get Any Scent",
+            "title": "Santal Dore",
+            "price": "$310",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["featured_1", "featured_2", "featured_3"],
       "settings": {
         "heading": "CURATED SELECTIONS",
-        "collection": ""
+        "collection": "",
+        "products_to_show": 3,
+        "show_vendor": true,
+        "show_price": true,
+        "card_cta_label": "Shop Now",
+        "view_all_link": "shopify://collections/all",
+        "view_all_label": "VIEW ALL"
       }
     },
     "story": {
@@ -35,10 +71,86 @@
     },
     "bestsellers": {
       "type": "getanyscent-bestsellers",
+      "blocks": {
+        "bestseller_1": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Oud Royal",
+            "size": "50ml",
+            "price": "$285",
+            "link": "shopify://collections/all"
+          }
+        },
+        "bestseller_2": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Noir Botanica",
+            "size": "50ml",
+            "price": "$245",
+            "link": "shopify://collections/all"
+          }
+        },
+        "bestseller_3": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Santal Dore",
+            "size": "50ml",
+            "price": "$310",
+            "link": "shopify://collections/all"
+          }
+        },
+        "bestseller_4": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Cuir de Nuit",
+            "size": "50ml",
+            "price": "$295",
+            "link": "shopify://collections/all"
+          }
+        },
+        "bestseller_5": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Ambre Sacre",
+            "size": "50ml",
+            "price": "$265",
+            "link": "shopify://collections/all"
+          }
+        },
+        "bestseller_6": {
+          "type": "product_card",
+          "settings": {
+            "brand": "Get Any Scent",
+            "title": "Vert Sauvage",
+            "size": "50ml",
+            "price": "$225",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "bestseller_1",
+        "bestseller_2",
+        "bestseller_3",
+        "bestseller_4",
+        "bestseller_5",
+        "bestseller_6"
+      ],
       "settings": {
         "heading": "MOST LOVED",
         "collection": "",
-        "products_to_show": 6
+        "products_to_show": 6,
+        "show_vendor": true,
+        "default_size_label": "50ml",
+        "add_to_bag_label": "ADD TO BAG",
+        "view_product_label": "VIEW PRODUCT",
+        "view_all_link": "shopify://collections/all",
+        "view_all_label": "SHOP ALL BESTSELLERS"
       }
     },
     "journal": {
@@ -99,7 +211,8 @@
         "instagram_6"
       ],
       "settings": {
-        "heading": "FOLLOW @GETANYSCENT"
+        "heading": "FOLLOW @GETANYSCENT",
+        "overlay_label": ""
       }
     },
     "newsletter": {
@@ -109,7 +222,8 @@
         "heading": "JOIN THE INNER CIRCLE",
         "text": "Be the first to discover new arrivals and exclusive offers.",
         "placeholder": "Your email address",
-        "button_label": "SUBSCRIBE"
+        "button_label": "SUBSCRIBE",
+        "success_message": "WELCOME TO THE INNER CIRCLE"
       }
     }
   },
