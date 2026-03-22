@@ -1,0 +1,148 @@
+{%- assign countdown_id = 'Countdown-' | append: section.id -%}
+{%- style -%}
+  #shopify-section-{{ section.id }} .countdown-timer {
+    padding: 8rem 0;
+    background: #132616;
+    color: #f5f2ed;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__heading {
+    margin-bottom: 1.6rem;
+    color: #f5f2ed;
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__subheading {
+    color: rgba(245, 242, 237, 0.72);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.6rem;
+    max-width: 76rem;
+    margin: 3.2rem auto 0;
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__unit {
+    padding: 2.4rem;
+    border: 1px solid rgba(142, 134, 106, 0.35);
+    background: rgba(14, 29, 16, 0.45);
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__value {
+    display: block;
+    color: #8e866a;
+    font-family: var(--font-heading-family);
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .countdown-timer__label {
+    display: block;
+    margin-top: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .countdown-timer__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+{%- endstyle -%}
+
+<section class="countdown-timer reveal" data-end-date="{{ section.settings.end_date }}" id="{{ countdown_id }}">
+  <div class="page-width">
+    <p class="countdown-timer__subheading">{{ section.settings.subheading }}</p>
+    <h2 class="countdown-timer__heading h1">{{ section.settings.heading }}</h2>
+    <div class="countdown-timer__grid" aria-live="polite">
+      <div class="countdown-timer__unit">
+        <span class="countdown-timer__value" data-days>00</span>
+        <span class="countdown-timer__label">Days</span>
+      </div>
+      <div class="countdown-timer__unit">
+        <span class="countdown-timer__value" data-hours>00</span>
+        <span class="countdown-timer__label">Hours</span>
+      </div>
+      <div class="countdown-timer__unit">
+        <span class="countdown-timer__value" data-minutes>00</span>
+        <span class="countdown-timer__label">Minutes</span>
+      </div>
+      <div class="countdown-timer__unit">
+        <span class="countdown-timer__value" data-seconds>00</span>
+        <span class="countdown-timer__label">Seconds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('{{ countdown_id }}');
+    if (!root) return;
+
+    const endDate = new Date(root.dataset.endDate);
+    if (Number.isNaN(endDate.getTime())) return;
+
+    const targets = {
+      days: root.querySelector('[data-days]'),
+      hours: root.querySelector('[data-hours]'),
+      minutes: root.querySelector('[data-minutes]'),
+      seconds: root.querySelector('[data-seconds]')
+    };
+
+    const render = () => {
+      const diff = Math.max(0, endDate.getTime() - Date.now());
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor((diff % 86400000) / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+
+      targets.days.textContent = String(days).padStart(2, '0');
+      targets.hours.textContent = String(hours).padStart(2, '0');
+      targets.minutes.textContent = String(minutes).padStart(2, '0');
+      targets.seconds.textContent = String(seconds).padStart(2, '0');
+    };
+
+    render();
+    window.setInterval(render, 1000);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Countdown Timer",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Limited allocation"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE NEXT CURATED DROP OPENS SOON"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "End date",
+      "info": "Use ISO format, for example 2026-12-31T23:59:59+04:00",
+      "default": "2026-12-31T23:59:59+04:00"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Countdown Timer"
+    }
+  ]
+}
+{% endschema %}

@@ -28,7 +28,7 @@
         "tiktok": "TikTok"
       }
     },
-    "continue_shopping": "Continue shopping",
+    "continue_shopping": "CONTINUE SHOPPING",
     "pagination": {
       "label": "Pagination",
       "page": "Page {{ number }}",
@@ -36,7 +36,7 @@
       "previous": "Previous page"
     },
     "search": {
-      "search": "Search",
+      "search": "SEARCH",
       "reset": "Clear search term"
     },
     "cart": {
@@ -59,8 +59,8 @@
   },
   "newsletter": {
     "label": "Email",
-    "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "success": "WELCOME TO THE INNER CIRCLE",
+    "button_label": "JOIN"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -106,7 +106,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Add to cart",
+      "add_to_cart": "ADD TO BAG",
       "choose_options": "Choose options",
       "choose_product_options": "Choose options for {{ product_name }}",
       "description": "Description",
@@ -117,7 +117,7 @@
       "inventory_out_of_stock": "Out of stock",
       "inventory_out_of_stock_continue_selling": "In stock",
       "sku": "SKU",
-      "on_sale": "Sale",
+      "on_sale": "SALE",
       "product_variants": "Product variants",
       "media": {
         "gallery_viewer": "Gallery Viewer",
@@ -167,13 +167,13 @@
         "unit_price": "Unit price"
       },
       "share": "Share this product",
-      "sold_out": "Sold out",
+      "sold_out": "SOLD OUT",
       "unavailable": "Unavailable",
       "vendor": "Vendor",
       "value_unavailable": "{{ option_value }} - Unavailable",
       "variant_sold_out_or_unavailable": "Variant sold out or unavailable",
       "video_exit_message": "{{ title }} opens full screen video in same window.",
-      "view_full_details": "View full details",
+      "view_full_details": "VIEW FULL DETAILS",
       "xr_button": "View in your space",
       "xr_button_label": "View in your space, loads item in augmented reality window",
       "taxes_included": "Taxes included.",
@@ -247,7 +247,7 @@
       "pages": "Pages"
     },
     "cart": {
-      "cart": "Cart"
+      "cart": "YOUR BAG"
     },
     "contact": {
       "form": {
@@ -262,8 +262,8 @@
       }
     },
     "404": {
-      "title": "Page not found",
-      "subtext": "404"
+      "title": "PAGE NOT FOUND",
+      "subtext": "LOST IN THE ARCHIVE"
     }
   },
   "sections": {
@@ -284,14 +284,14 @@
       }
     },
     "cart": {
-      "title": "Your cart",
+      "title": "YOUR BAG",
       "caption": "Cart items",
       "remove_title": "Remove {{ title }}",
       "estimated_total": "Estimated total",
       "new_estimated_total": "New estimated total",
       "note": "Order special instructions",
-      "checkout": "Check out",
-      "empty": "Your cart is empty",
+      "checkout": "CHECKOUT",
+      "empty": "YOUR BAG IS EMPTY",
       "cart_error": "There was an error while updating your cart. Please try again.",
       "cart_quantity_error_html": "You can only add {{ quantity }} of this item to your cart.",
       "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Duties and taxes included. Discounts and <a href=\"{{ link }}\">shipping</a> calculated at checkout.",

@@ -74,6 +74,25 @@
           </span>
         </button>
       </div>
+      {%- if cart != empty -%}
+        {%- assign threshold = 200 -%}
+        {%- assign current = cart.total_price | divided_by: 100.0 -%}
+        {%- assign remaining = threshold | minus: current -%}
+        {%- assign progress = current | divided_by: threshold | times: 100 -%}
+        {%- if progress > 100 -%}
+          {%- assign progress = 100 -%}
+        {%- endif -%}
+        <div class="shipping-bar" role="status">
+          <div class="shipping-bar__track">
+            <div class="shipping-bar__fill" style="width: {{ progress }}%"></div>
+          </div>
+          {%- if remaining > 0 -%}
+            <p>AED {{ remaining | round: 2 }} away from free shipping</p>
+          {%- else -%}
+            <p>You've unlocked free shipping!</p>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"

@@ -1,0 +1,74 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .marquee {
+    overflow: hidden;
+    background: {{ section.settings.bg_color }};
+    padding: 1.2rem 0;
+  }
+
+  #shopify-section-{{ section.id }} .marquee__inner {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: getanyscent-marquee {{ section.settings.speed }}s linear infinite;
+  }
+
+  #shopify-section-{{ section.id }} .marquee__text {
+    flex-shrink: 0;
+    padding: 0 4rem;
+    color: {{ section.settings.text_color }};
+    font-size: 1.1rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+{%- endstyle -%}
+
+<div class="marquee reveal">
+  <div class="marquee__inner">
+    {%- for i in (1..8) -%}
+      <span class="marquee__text">{{ section.settings.text }}</span>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Ticker",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Marquee text",
+      "default": "RARE PERFUMES • NICHE HOUSES • AUTHENTIC BOTTLES • GCC DELIVERY • PRIVATE SOURCING"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Speed",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "default": 30
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#F5F2ED"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#8E866A"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Ticker"
+    }
+  ]
+}
+{% endschema %}

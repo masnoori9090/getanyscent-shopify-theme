@@ -1,93 +1,173 @@
 {
   "sections": {
-    "hero": {
-      "type": "getanyscent-hero",
-      "settings": {
-        "color_scheme": "scheme-4",
-        "overline": "New Collection",
-        "heading": "THE ART\nOF SCENT",
-        "copy": "<p>Rare fragrances sourced from the world's finest perfumers and translated into a more elevated, editorial Shopify storefront.</p>",
-        "primary_label": "Explore Collection",
-        "primary_link": "shopify://collections/all",
-        "secondary_label": "Shop Bestsellers",
-        "secondary_link": "shopify://collections/all",
-        "scroll_label": "Scroll"
-      }
-    },
-    "marquee": {
-      "type": "getanyscent-marquee",
+    "image_banner": {
+      "type": "image-banner",
       "blocks": {
-        "item_1": {
-          "type": "item",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "text": "Curated selections"
+            "heading": "THE ART OF SCENT",
+            "heading_size": "h0"
           }
         },
-        "item_2": {
-          "type": "item",
+        "text": {
+          "type": "text",
           "settings": {
-            "text": "Rare fragrance houses"
+            "text": "A private edit of rare perfumes, iconic houses, and collector-worthy bottles sourced for those who wear fragrance with intention.",
+            "text_style": "body"
           }
         },
-        "item_3": {
-          "type": "item",
+        "buttons": {
+          "type": "buttons",
           "settings": {
-            "text": "Luxury discovery"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Worldwide shipping"
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["item_1", "item_2", "item_3", "item_4"],
+      "block_order": ["heading", "text", "buttons"],
       "settings": {
-        "accessibility_label": "Brand highlights"
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "full_viewport": true,
+        "layout": "full_width",
+        "scroll_label": "SCROLL",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-4",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "marquee": {
+      "type": "marquee-ticker",
+      "settings": {
+        "text": "RARE PERFUMES • NICHE HOUSES • AUTHENTIC BOTTLES • GCC DELIVERY • PRIVATE SOURCING",
+        "speed": 30,
+        "bg_color": "#F5F2ED",
+        "text_color": "#8E866A"
       }
     },
     "featured_collection": {
-      "type": "getanyscent-featured-collection",
+      "type": "featured-collection",
       "settings": {
-        "collection": "all",
-        "eyebrow": "Curated selections",
-        "heading": "Discover the house signatures",
-        "copy": "<p>Use your bestsellers or newest arrivals here. The first product is intentionally treated like a lead editorial card.</p>",
-        "products_to_show": 3,
+        "title": "THE EDIT",
+        "heading_size": "h1",
+        "collection": "",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
+        "show_secondary_image": true,
         "show_vendor": false,
-        "card_cta": "Shop now",
-        "button_label": "View all"
+        "show_rating": false,
+        "columns_mobile": "1",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
-    "editorial": {
-      "type": "getanyscent-editorial",
+    "split_feature": {
+      "type": "split-feature",
       "settings": {
-        "eyebrow": "Our Story",
-        "heading": "Crafted for those who know",
-        "copy": "<p>We believe fragrance is one of the most intimate forms of self-expression. Use this section to explain sourcing, ritual, or what makes your assortment distinct.</p>",
-        "link_label": "Learn more"
+        "eyebrow": "ABOUT GET ANY SCENT",
+        "heading": "RARE FINDS. QUIET LUXURY. LASTING IMPRESSION.",
+        "text": "<p>Get Any Scent was built for clients who want more than mass-market fragrance. We curate niche perfume houses, hard-to-find signatures, and refined gifting pieces for wardrobes that deserve something memorable.</p><p>Every selection is guided by composition, character, and wearability, from luminous daytime florals to dark resinous evening blends.</p>",
+        "button_label": "READ OUR STORY",
+        "button_link": "shopify://collections/all",
+        "image_position": "right",
+        "panel_color": "#132616",
+        "text_color": "#F5F2ED"
       }
     },
-    "journal": {
-      "type": "getanyscent-journal",
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Amna K.",
+            "location": "Dubai",
+            "quote": "The curation feels personal and precise. Every order arrives like a luxury gift, with scents that actually stand apart.",
+            "rating": 5
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Yousef A.",
+            "location": "Abu Dhabi",
+            "quote": "Finally, a fragrance store that understands collectors. The presentation is elegant and the selection feels genuinely elevated.",
+            "rating": 5
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "name": "Sara M.",
+            "location": "Sharjah",
+            "quote": "I found a signature scent here after years of searching. The whole experience feels refined, discreet, and beautifully considered.",
+            "rating": 5
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
       "settings": {
-        "eyebrow": "The Journal",
-        "heading": "Stories that deepen the ritual",
-        "copy": "<p>Connect a Shopify blog here for editorials, launch stories, ingredient education, or founder notes.</p>"
+        "heading": "NOTES FROM OUR CLIENTS",
+        "subheading": "For collectors, gift seekers, and fragrance devotees"
+      }
+    },
+    "instagram_feed": {
+      "type": "instagram-feed",
+      "blocks": {
+        "image_1": {
+          "type": "image",
+          "settings": {
+            "link": "https://instagram.com/getanyscent"
+          }
+        },
+        "image_2": {
+          "type": "image",
+          "settings": {
+            "link": "https://instagram.com/getanyscent"
+          }
+        },
+        "image_3": {
+          "type": "image",
+          "settings": {
+            "link": "https://instagram.com/getanyscent"
+          }
+        },
+        "image_4": {
+          "type": "image",
+          "settings": {
+            "link": "https://instagram.com/getanyscent"
+          }
+        }
+      },
+      "block_order": ["image_1", "image_2", "image_3", "image_4"],
+      "settings": {
+        "heading": "FROM THE WORLD OF GET ANY SCENT"
       }
     },
     "newsletter": {
-      "type": "getanyscent-newsletter",
+      "type": "newsletter",
       "settings": {
-        "eyebrow": "Stay Connected",
-        "heading": "Join the inner circle",
-        "copy": "<p>Be the first to hear about new drops, hard-to-find bottles, and private offers.</p>",
-        "placeholder": "Your email address",
-        "button_label": "Subscribe",
-        "success_message": "You're on the list."
+        "heading": "JOIN THE PRIVATE LIST",
+        "paragraph": "Receive launch drops, limited allocations, and restock notices before the public.",
+        "color_scheme": "scheme-4",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
-  "order": ["hero", "marquee", "featured_collection", "editorial", "journal", "newsletter"]
+  "order": ["image_banner", "marquee", "featured_collection", "split_feature", "testimonials", "instagram_feed", "newsletter"]
 }

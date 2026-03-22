@@ -10,14 +10,23 @@
   }
 </style>
 
-<div class="template-404 page-width page-margin center">
-  <p>
-    {{ 'templates.404.subtext' | t }}
-  </p>
+<div class="template-404 page-width page-margin center getanyscent-404">
+  <p class="getanyscent-404__eyebrow">{{ 'templates.404.subtext' | t }}</p>
   <h1 class="title">
     {{ 'templates.404.title' | t }}
   </h1>
-  <a href="{{ routes.all_products_collection_url }}" class="button">
-    {{ 'general.continue_shopping' | t }}
+  <p class="getanyscent-404__copy">Search the archive or return to the collection floor.</p>
+  <form action="{{ routes.search_url }}" method="get" role="search" class="getanyscent-404__search">
+    <input
+      type="search"
+      name="q"
+      value=""
+      placeholder="{{ 'general.search.search' | t }}"
+      aria-label="{{ 'general.search.search' | t }}"
+    >
+    <button type="submit" class="button button--secondary">{{ 'general.search.search' | t }}</button>
+  </form>
+  <a href="{{ routes.root_url }}" class="button button--secondary">
+    RETURN HOME
   </a>
 </div>

@@ -279,6 +279,42 @@ class QuantityInput extends HTMLElement {
 
 customElements.define('quantity-input', QuantityInput);
 
+document.addEventListener('DOMContentLoaded', () => {
+  const transparentHeader = document.querySelector('.header-wrapper--transparent-home');
+  if (transparentHeader) {
+    const syncHeaderState = () => {
+      transparentHeader.classList.toggle('scrolled', window.scrollY > 24);
+    };
+
+    syncHeaderState();
+    window.addEventListener('scroll', syncHeaderState, { passive: true });
+  }
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const reveals = document.querySelectorAll(
+    '.reveal, .shopify-section, .section-header, .card-wrapper, .product-card-wrapper, .multicolumn-card'
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.transitionDelay = `${index * 0.08}s`;
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.12 }
+  );
+
+  reveals.forEach((element) => {
+    if (element.classList.contains('revealed')) return;
+    element.classList.add('reveal-ready');
+    observer.observe(element);
+  });
+});
+
 function debounce(fn, wait) {
   let t;
   return (...args) => {

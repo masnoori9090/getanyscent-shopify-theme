@@ -787,3 +787,862 @@ h6,
     padding-bottom: 7rem;
   }
 }
+
+/* Get Any Scent Dawn overrides */
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body-family), "Lato", sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  background: #f5f2ed;
+  color: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.section-header__title {
+  font-family: var(--font-heading-family), "Cormorant Garamond", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+h1,
+.h0,
+.h1 {
+  font-weight: 300;
+  letter-spacing: 0.12em;
+}
+
+.section-header__title {
+  letter-spacing: 0.15em;
+}
+
+.section-header__title::before,
+.section-header__title::after {
+  content: "";
+  display: block;
+  width: 6rem;
+  height: 1px;
+  margin: 1.6rem auto;
+  background: #8e866a;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+.card,
+.collection-list__item,
+.card__media img,
+.media img {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.media,
+.card__media,
+.card__inner {
+  overflow: hidden;
+}
+
+.card:hover .media img,
+.card:hover .card__media img,
+.collection-list__item:hover .media img {
+  transform: scale(1.03);
+}
+
+.section-padding,
+.shopify-section.section {
+  position: relative;
+}
+
+.header-wrapper {
+  position: relative;
+  background: #132616;
+  border-bottom: 1px solid rgba(142, 134, 106, 0.3);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.header-wrapper--transparent-home {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 30;
+  background: transparent;
+  border-bottom-color: transparent;
+}
+
+.header-wrapper--transparent-home.scrolled {
+  position: fixed;
+  background: rgba(19, 38, 22, 0.94);
+  box-shadow: 0 1.2rem 3.2rem rgba(15, 21, 16, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.header,
+.header__heading-link,
+.header__menu-item,
+.header__icon,
+.header__active-menu-item {
+  color: #f5f2ed;
+}
+
+.header__menu-item,
+.menu-drawer__menu-item {
+  position: relative;
+  font-family: var(--font-body-family), "Lato", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.header__menu-item::after,
+.footer-block__details-content a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.2rem;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.header__menu-item:hover::after,
+.footer-block__details-content a:hover::after {
+  width: 100%;
+}
+
+.header__icon:hover,
+.header__menu-item:hover,
+.header__active-menu-item,
+.list-menu__item--active {
+  color: #8e866a;
+}
+
+.header__icon .icon,
+.header__menu-item .icon {
+  color: inherit;
+}
+
+.header__icon--cart .cart-count-bubble,
+.cart-count-bubble {
+  background: #8e866a;
+  color: #132616;
+  box-shadow: none;
+}
+
+.menu-drawer {
+  background: #132616;
+}
+
+.menu-drawer__inner-container,
+.menu-drawer__menu-item,
+.menu-drawer__utility-links,
+.menu-drawer .list-social__link,
+.menu-drawer .localization-selector.link {
+  color: #f5f2ed;
+}
+
+.menu-drawer__menu-item:hover,
+.menu-drawer .list-social__link:hover {
+  color: #8e866a;
+}
+
+.announcement-bar {
+  background: #8e866a;
+  color: #132616;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+}
+
+.banner {
+  min-height: 72rem;
+}
+
+.banner--viewport {
+  min-height: 100vh;
+}
+
+.banner--layout-split_left,
+.banner--layout-split_right {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+}
+
+.banner--layout-split_left .banner__media:first-child {
+  order: 2;
+}
+
+.banner--layout-split_left .banner__content {
+  order: 1;
+}
+
+.banner--layout-split_right .banner__media:first-child {
+  order: 1;
+}
+
+.banner--layout-split_right .banner__content {
+  order: 2;
+}
+
+.banner--layout-split_left .banner__content,
+.banner--layout-split_right .banner__content {
+  position: relative;
+  min-height: 100%;
+  padding: 6rem;
+  background: #132616;
+}
+
+.banner--layout-split_left .banner__box,
+.banner--layout-split_right .banner__box {
+  margin: auto;
+}
+
+.banner__box {
+  max-width: 68rem;
+}
+
+.banner__heading {
+  font-family: var(--font-heading-family), "Cormorant Garamond", serif;
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.banner__text {
+  max-width: 48rem;
+  margin: 1.6rem auto 0;
+}
+
+.getanyscent-hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 2.8rem;
+  transform: translateX(-50%);
+  color: #f5f2ed;
+  font-size: 1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.getanyscent-hero__scroll::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 4.8rem;
+  margin: 1rem auto 0;
+  background: currentColor;
+  animation: getanyscent-scroll 1.8s ease-in-out infinite;
+}
+
+@keyframes getanyscent-scroll {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0.8rem);
+  }
+}
+
+.button,
+.shopify-challenge__button,
+.shopify-payment-button__button {
+  min-height: 5.4rem;
+  padding: 1.6rem 4.8rem;
+  font-family: var(--font-body-family), "Lato", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.button--primary,
+.shopify-payment-button__button,
+.button:not(.button--secondary):not(.button--tertiary) {
+  background: #132616;
+  color: #fff;
+  border: 1px solid #132616;
+}
+
+.button--primary:hover,
+.shopify-payment-button__button:hover,
+.button:not(.button--secondary):not(.button--tertiary):hover {
+  background: #8e866a;
+  border-color: #8e866a;
+  color: #132616;
+}
+
+.button--secondary {
+  background: transparent;
+  color: #8e866a;
+  border: 1px solid #8e866a;
+}
+
+.button--secondary:hover {
+  background: #8e866a;
+  color: #132616;
+}
+
+.featured-collection .title-wrapper-with-link,
+.collection-list .title-wrapper-with-link,
+.main-page-title {
+  text-align: center;
+}
+
+.featured-collection .link,
+.title-wrapper-with-link .link {
+  color: #8e866a;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.card-wrapper .card {
+  background: rgba(245, 242, 237, 0.76);
+  border: 1px solid rgba(142, 134, 106, 0.3);
+}
+
+.card__information .card__heading,
+.card-information .price {
+  text-transform: uppercase;
+}
+
+.card__content {
+  position: relative;
+}
+
+.card__content::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 20%, rgba(19, 38, 22, 0.52) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.card:hover .card__content::after {
+  opacity: 1;
+}
+
+.price,
+.price-item,
+.price__sale,
+.price__regular .price-item--regular,
+.price__sale .price-item--sale {
+  color: #8e866a;
+  font-family: var(--font-heading-family), "Cormorant Garamond", serif;
+}
+
+.badge {
+  background: #8e866a;
+  color: #132616;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.field__input,
+.select__select,
+.customer input,
+.customer textarea,
+.customer select,
+.newsletter-form__field-wrapper .field__input {
+  border-color: rgba(142, 134, 106, 0.3);
+  background: transparent;
+}
+
+.field__input:focus,
+.select__select:focus,
+.customer input:focus,
+.customer textarea:focus {
+  border-color: #8e866a;
+  box-shadow: 0 0 0 1px #8e866a;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2.4rem;
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.breadcrumb a {
+  color: #8e866a;
+  text-decoration: none;
+}
+
+.getanyscent-wishlist-link {
+  display: inline-block;
+  margin-top: 1.6rem;
+  color: #8e866a;
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.template-product .product-form__input input[type="radio"] + label {
+  padding: 1rem 2.4rem;
+  border: 1px solid #8e866a;
+  color: #000;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.template-product .product-form__input input[type="radio"]:checked + label {
+  background: #132616;
+  color: #fff;
+  border-color: #132616;
+}
+
+.template-product .accordion {
+  border-color: rgba(142, 134, 106, 0.3);
+}
+
+.template-product .accordion summary {
+  color: #000;
+}
+
+.facets-container,
+.facets-vertical,
+.facet-filters,
+.facet-filters__field,
+.pagination-wrapper,
+.pagination__list {
+  color: #000;
+}
+
+.facet-filters__field .select__select,
+.facets__form .field__input,
+.facets .facet-checkbox {
+  border-color: rgba(142, 134, 106, 0.3);
+}
+
+.active-facets__button,
+.pagination__item--current,
+.facets__label--active {
+  background: #132616;
+  color: #f5f2ed;
+}
+
+.collection-hero,
+.collection-hero__inner {
+  background: #ede9e0;
+}
+
+.collection-hero__image-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(19, 38, 22, 0.18), rgba(19, 38, 22, 0.72));
+}
+
+.cart-drawer,
+.drawer__inner {
+  background: #132616;
+  color: #f5f2ed;
+}
+
+.cart-drawer .cart-item__name,
+.cart-drawer .totals,
+.cart-drawer .drawer__heading,
+.cart-drawer .quantity__input,
+.cart-drawer .tax-note,
+.cart-drawer .cart-item .product-option,
+.cart-drawer .quantity-popover__info-button {
+  color: #f5f2ed;
+}
+
+.cart-drawer .price,
+.cart-drawer .cart-item__old-price,
+.cart-drawer .cart-item__final-price,
+.cart-drawer .totals__total-value {
+  color: #8e866a;
+}
+
+.shipping-bar {
+  padding: 0 2.8rem 1.8rem;
+}
+
+.shipping-bar__track {
+  width: 100%;
+  height: 0.6rem;
+  background: rgba(245, 242, 237, 0.12);
+}
+
+.shipping-bar__fill {
+  height: 100%;
+  background: #8e866a;
+}
+
+.shipping-bar p {
+  margin: 1rem 0 0;
+  color: #f5f2ed;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.template-cart .cart__warnings,
+.template-cart .cart__empty-text {
+  text-align: center;
+}
+
+.footer {
+  background: #0e1d10;
+  color: rgba(245, 242, 237, 0.7);
+}
+
+.footer a,
+.footer .field__label,
+.footer .copyright__content {
+  color: rgba(245, 242, 237, 0.7);
+}
+
+.footer a:hover {
+  color: #8e866a;
+}
+
+.footer-block__heading,
+.footer__heading,
+.footer__content-bottom .caption {
+  color: #f5f2ed;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer .field__input {
+  border-color: rgba(142, 134, 106, 0.45);
+  color: #f5f2ed;
+}
+
+.footer .field__button {
+  color: #8e866a;
+}
+
+.getanyscent-payment-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-end;
+  margin-top: 1.6rem;
+}
+
+.getanyscent-payment-badges span {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid rgba(142, 134, 106, 0.3);
+  color: #f5f2ed;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.getanyscent-404 {
+  max-width: 72rem;
+  padding: 8rem 0;
+}
+
+.getanyscent-404__eyebrow {
+  color: #8e866a;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.getanyscent-404__copy {
+  max-width: 48rem;
+  margin: 1.6rem auto 2.4rem;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.getanyscent-404__search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  max-width: 56rem;
+  margin: 0 auto 2rem;
+}
+
+.template-customers .customer,
+.customer.login,
+.customer.register,
+.customer.account {
+  color: #000;
+}
+
+.template-customers .customer form {
+  max-width: 52rem;
+  margin-inline: auto;
+}
+
+.template-customers .button,
+.customer .button {
+  background: #132616;
+  color: #fff;
+}
+
+.template-customers .button:hover,
+.customer .button:hover {
+  background: #8e866a;
+  color: #132616;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50% !important;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 0.6rem 2rem rgba(0, 0, 0, 0.22);
+  z-index: 60;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 1rem 2.8rem rgba(0, 0, 0, 0.28);
+}
+
+*:focus-visible {
+  outline: 2px solid #8e866a;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(142, 134, 106, 0.3);
+  color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f2ed;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8e866a;
+}
+
+.loading-overlay__spinner circle {
+  stroke: #8e866a;
+}
+
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .banner--layout-split_left,
+  .banner--layout-split_right,
+  .getanyscent-404__search {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    padding-inline: 1.8rem;
+  }
+
+  .banner--layout-split_left .banner__content,
+  .banner--layout-split_right .banner__content {
+    padding: 4rem 2.2rem;
+  }
+
+  .banner__heading {
+    font-size: clamp(3.4rem, 8vw, 7.2rem);
+  }
+
+  .banner__text {
+    font-size: 1.5rem;
+  }
+
+  .collection .title,
+  .testimonials .h1,
+  .instagram-feed .h1,
+  .split-feature__heading {
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+  }
+
+  .split-feature__content,
+  .testimonial-card,
+  .footer__content-top,
+  .newsletter__wrapper,
+  .footer-block--newsletter {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .shipping-bar {
+    padding-inline: 2rem;
+  }
+
+  .getanyscent-payment-badges {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .header__heading-link .h2,
+  .header__heading-link span {
+    font-size: 1.7rem;
+    letter-spacing: 0.16em;
+  }
+
+  .banner,
+  .banner--viewport {
+    min-height: auto;
+  }
+
+  .banner__content {
+    padding-top: 11rem;
+    padding-bottom: 4rem;
+  }
+
+  .banner__box {
+    width: min(100%, 34rem);
+    margin-inline: 0;
+    text-align: left;
+  }
+
+  .banner__text {
+    margin-inline: 0;
+  }
+
+  .banner__buttons {
+    width: 100%;
+  }
+
+  .banner__buttons .button {
+    width: 100%;
+    padding-inline: 2rem;
+  }
+
+  .getanyscent-hero__scroll {
+    display: none;
+  }
+
+  .marquee__text {
+    padding-inline: 2.2rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+  }
+
+  .card-information {
+    padding-top: 1.4rem;
+  }
+
+  .instagram-feed {
+    padding: 6rem 0;
+  }
+
+  .instagram-feed__grid {
+    gap: 0.8rem;
+  }
+
+  .footer__content-top,
+  .footer__content-bottom-wrapper,
+  .template-product .product__info-container {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .breadcrumb {
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.12em;
+  }
+
+  .whatsapp-float {
+    width: 5rem;
+    height: 5rem;
+    right: 1.6rem;
+    bottom: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .header {
+    padding-inline: 1.2rem;
+  }
+
+  .banner__content {
+    padding-top: 9.6rem;
+    padding-bottom: 3.2rem;
+  }
+
+  .banner__heading {
+    font-size: clamp(2.8rem, 11vw, 4.4rem);
+  }
+
+  .button,
+  .shopify-challenge__button,
+  .shopify-payment-button__button {
+    min-height: 4.8rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+  }
+
+  .shipping-bar,
+  .split-feature__content,
+  .testimonial-card,
+  .getanyscent-404,
+  .footer-block--newsletter {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+  }
+}
