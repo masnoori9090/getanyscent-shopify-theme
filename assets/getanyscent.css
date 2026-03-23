@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@1,400;1,500&display=swap');
-
 :root {
   --gas-forest: #132616;
   --gas-emerald: #19321d;
@@ -28,7 +26,9 @@ body,
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
+  font-weight: var(--font-body-weight);
   line-height: 1.7;
   letter-spacing: 0.01em;
 }
@@ -68,7 +68,8 @@ h6,
 .h3,
 .h4,
 .h5 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -81,7 +82,8 @@ input,
 textarea,
 select,
 button {
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
+  font-style: var(--font-body-style);
 }
 
 ::selection {
@@ -144,7 +146,7 @@ body.is-page-leaving .content-for-layout {
   align-items: center;
   gap: 1.2rem;
   margin-bottom: 2.4rem;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading-family);
   font-size: 1.9rem;
   font-style: italic;
   color: var(--gas-gold);
@@ -390,7 +392,7 @@ body.is-page-leaving .content-for-layout {
 
 .menu-drawer__menu-item {
   padding: 1.6rem 0;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-heading-family);
   font-size: 2.6rem;
   letter-spacing: 0.12em;
 }
@@ -423,7 +425,7 @@ body.is-page-leaving .content-for-layout {
 
 .mega-menu__eyebrow {
   margin: 0 0 1.2rem;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading-family);
   font-size: 1.6rem;
   font-style: italic;
   color: var(--gas-gold);
@@ -558,7 +560,7 @@ body.is-page-leaving .content-for-layout {
 }
 
 .mega-menu__featured-copy strong {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-heading-family);
   font-size: 2.6rem;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -572,7 +574,7 @@ body.is-page-leaving .content-for-layout {
 
 .mega-menu__featured-price {
   color: var(--gas-gold);
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-heading-family);
   font-size: 2.1rem;
 }
 
@@ -879,7 +881,7 @@ body.is-page-leaving .content-for-layout {
 .price {
   margin: 0.8rem 0 0;
   color: var(--gas-gold);
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-heading-family);
   font-size: 2.1rem;
   letter-spacing: 0.06em;
 }
@@ -992,7 +994,7 @@ body.is-page-leaving .content-for-layout {
 .getanyscent-bestsellers__body h3 a {
   margin: 0;
   color: var(--gas-ink);
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -1170,7 +1172,7 @@ body.is-page-leaving .content-for-layout {
 .instagram-feed .h1 {
   color: var(--gas-gold);
   font-size: 1.1rem;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
   font-weight: 400;
   letter-spacing: 0.22em;
 }
@@ -1289,7 +1291,7 @@ body.is-page-leaving .content-for-layout {
 
 .footer-block__heading {
   color: var(--gas-gold);
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.18em;
@@ -1426,7 +1428,7 @@ body.is-page-leaving .content-for-layout {
 
 .collection-hero__eyebrow {
   margin: 0 0 1.8rem;
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading-family);
   font-size: 1.8rem;
   font-style: italic;
   color: var(--gas-gold);
@@ -1735,7 +1737,7 @@ body.is-page-leaving .content-for-layout {
 
 .cart-notification__heading {
   font-size: 1.2rem;
-  font-family: "Lato", sans-serif;
+  font-family: var(--font-body-family);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -1931,7 +1933,7 @@ body.is-page-leaving .content-for-layout {
 .getanyscent-404__eyebrow {
   margin: 0;
   color: var(--gas-gold);
-  font-family: "Playfair Display", serif;
+  font-family: var(--font-heading-family);
   font-size: 1.8rem;
   font-style: italic;
 }
