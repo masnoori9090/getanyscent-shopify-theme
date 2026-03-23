@@ -14,7 +14,7 @@
   endif
 -%}
 
-<section class="getanyscent-editorial-note reveal">
+<section class="getanyscent-editorial-note getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-shell">
     <div class="getanyscent-editorial-note__inner">
       {%- if section.settings.eyebrow != blank -%}
@@ -36,6 +36,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
     {
       "type": "text",
       "id": "eyebrow",

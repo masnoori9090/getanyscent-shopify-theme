@@ -42,6 +42,7 @@
         "promo_secondary"
       ],
       "settings": {
+        "color_scheme": "scheme-4",
         "eyebrow": "Best-selling collection",
         "heading": "SHOP THE NEW FRAGRANCE EDIT",
         "text": "A promo-first storefront for featured launches, giftable best sellers, and quick collection discovery.",
@@ -89,7 +90,9 @@
         "value_3",
         "value_4"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-4"
+      }
     },
     "promo_grid": {
       "type": "getanyscent-promo-grid",
@@ -140,12 +143,14 @@
         "promo_tile_3"
       ],
       "settings": {
+        "color_scheme": "scheme-1",
         "heading": "SHOP BY CAMPAIGN"
       }
     },
     "featured_collection": {
       "type": "getanyscent-featured-collection",
       "settings": {
+        "color_scheme": "scheme-1",
         "heading": "TRENDING NOW",
         "collection": "frontpage",
         "products_to_show": 4,
@@ -159,6 +164,7 @@
     "bestsellers": {
       "type": "getanyscent-bestsellers",
       "settings": {
+        "color_scheme": "scheme-2",
         "heading": "BEST SELLERS",
         "collection": "frontpage",
         "products_to_show": 4,
@@ -173,6 +179,7 @@
     "story": {
       "type": "getanyscent-editorial",
       "settings": {
+        "color_scheme": "scheme-4",
         "eyebrow": "Brand feature",
         "heading": "PROMOTIONAL STORYTELLING WITH PRODUCT FOCUS",
         "text": "<p>Shift the homepage from static branding to conversion-led merchandising. Showcase launches, limited collections, and campaign copy without giving up the premium Get Any Scent identity.</p>",
@@ -221,6 +228,7 @@
         "journal_3"
       ],
       "settings": {
+        "color_scheme": "scheme-1",
         "heading": "FROM THE JOURNAL",
         "blog": "",
         "articles_to_show": 3
@@ -229,6 +237,7 @@
     "newsletter": {
       "type": "getanyscent-newsletter",
       "settings": {
+        "color_scheme": "scheme-4",
         "eyebrow": "Newsletter",
         "heading": "GET EARLY ACCESS TO NEW RELEASES",
         "text": "Capture email with a promo-driven message, launch alerts, and private offers.",

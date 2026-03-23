@@ -12,7 +12,7 @@
   endif
 -%}
 
-<section class="getanyscent-hero reveal">
+<section class="getanyscent-hero getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-shell getanyscent-hero__shell">
     <div class="getanyscent-hero__grid">
       <div class="getanyscent-hero__feature">
@@ -116,6 +116,7 @@
   "class": "section",
   "max_blocks": 2,
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" },
     { "type": "image_picker", "id": "image", "label": "Hero image" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "New arrivals" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "NEW SEASON FRAGRANCE EDIT" },

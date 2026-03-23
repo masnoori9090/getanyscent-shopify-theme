@@ -1,4 +1,4 @@
-<section class="getanyscent-marquee reveal">
+<section class="getanyscent-marquee getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-marquee__track">
     {%- for i in (1..8) -%}
       <span class="getanyscent-marquee__item">{{ section.settings.text }}</span>
@@ -12,6 +12,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-5"
+    },
     {
       "type": "text",
       "id": "text",

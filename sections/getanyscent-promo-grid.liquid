@@ -1,4 +1,4 @@
-<section class="getanyscent-promo-grid reveal">
+<section class="getanyscent-promo-grid getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-shell">
     {%- if section.settings.heading != blank -%}
       <div class="getanyscent-heading-stack getanyscent-heading-stack--left">
@@ -72,6 +72,7 @@
   "class": "section",
   "max_blocks": 3,
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "SHOP BY CAMPAIGN" }
   ],
   "blocks": [

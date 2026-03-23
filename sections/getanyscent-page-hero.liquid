@@ -1,6 +1,6 @@
 {%- assign fallback_asset = 'gas-ref-story-botanical.jpg' | asset_url -%}
 
-<section class="getanyscent-page-hero reveal{% if section.settings.layout == 'split' %} getanyscent-page-hero--split{% endif %}">
+<section class="getanyscent-page-hero getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal{% if section.settings.layout == 'split' %} getanyscent-page-hero--split{% endif %}">
   <div class="getanyscent-page-hero__media">
     {%- if section.settings.image != blank -%}
       {{
@@ -42,6 +42,7 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" },
     { "type": "image_picker", "id": "image", "label": "Background image" },
     {
       "type": "select",

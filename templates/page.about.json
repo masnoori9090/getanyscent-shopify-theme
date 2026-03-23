@@ -3,6 +3,7 @@
     "hero": {
       "type": "getanyscent-page-hero",
       "settings": {
+        "color_scheme": "scheme-4",
         "layout": "split",
         "eyebrow": "About Get Any Scent",
         "heading": "CURATED FRAGRANCES FOR THE DISCERNING",
@@ -14,6 +15,7 @@
     "note": {
       "type": "getanyscent-editorial-note",
       "settings": {
+        "color_scheme": "scheme-1",
         "eyebrow": "Our Philosophy",
         "text": "<p>We believe fragrance should feel personal, composed, and lasting. Every selection is made with an editor's eye for texture, longevity, balance, and presence.</p>"
       }
@@ -21,6 +23,7 @@
     "story": {
       "type": "getanyscent-editorial",
       "settings": {
+        "color_scheme": "scheme-4",
         "eyebrow": "Our Story",
         "heading": "CRAFTED FOR THOSE WHO KNOW",
         "text": "<p>From the oud forests of Southeast Asia to the ateliers of Europe, we look for perfumers and houses that build character rather than noise.</p><p>What enters the collection must feel refined on skin, striking in memory, and timeless in mood. That principle guides every bottle, every story, and every recommendation we make.</p>",
@@ -68,6 +71,7 @@
       },
       "block_order": ["testimonial_1", "testimonial_2", "testimonial_3"],
       "settings": {
+        "color_scheme": "scheme-2",
         "heading": "NOTES FROM OUR CLIENTS",
         "subheading": "For collectors, gift seekers, and fragrance devotees"
       }
@@ -82,12 +86,14 @@
       },
       "block_order": ["logo_1", "logo_2", "logo_3", "logo_4"],
       "settings": {
+        "color_scheme": "scheme-1",
         "heading": "HOUSES, PARTNERS, AND PRESS"
       }
     },
     "newsletter": {
       "type": "getanyscent-newsletter",
       "settings": {
+        "color_scheme": "scheme-4",
         "eyebrow": "Stay Connected",
         "heading": "JOIN THE INNER CIRCLE",
         "text": "Be the first to hear about fresh arrivals, curated selections, and private releases.",

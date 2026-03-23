@@ -1,4 +1,4 @@
-<section class="getanyscent-value-bar reveal">
+<section class="getanyscent-value-bar getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-shell">
     <div class="getanyscent-value-bar__grid">
       {%- for block in section.blocks -%}
@@ -19,6 +19,9 @@
   "tag": "section",
   "class": "section",
   "max_blocks": 4,
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" }
+  ],
   "blocks": [
     {
       "type": "value",

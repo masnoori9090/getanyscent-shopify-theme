@@ -19,7 +19,7 @@
     assign secondary_two = blog.articles[2]
   -%}
 
-  <section class="getanyscent-blog section-{{ section.id }}-padding">
+  <section class="getanyscent-blog getanyscent-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
     <div class="getanyscent-shell">
       <div class="getanyscent-heading-stack">
         <div class="gold-divider"></div>
@@ -124,6 +124,7 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Journal" },
     { "type": "range", "id": "articles_per_page", "label": "Articles per page", "min": 3, "max": 12, "step": 1, "default": 9 },
     {

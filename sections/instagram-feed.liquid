@@ -5,7 +5,7 @@
   endif
 -%}
 
-<section class="instagram-feed reveal">
+<section class="instagram-feed getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="page-width">
     <div class="instagram-feed__header">
       <h2 class="h1">{{ section.settings.heading }}</h2>
@@ -94,6 +94,12 @@
   "class": "section",
   "max_blocks": 8,
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
     {
       "type": "text",
       "id": "heading",

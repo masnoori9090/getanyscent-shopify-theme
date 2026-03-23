@@ -9,7 +9,7 @@
   endif
 -%}
 
-<section class="getanyscent-editorial reveal">
+<section class="getanyscent-editorial getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal">
   <div class="getanyscent-shell">
     <div class="getanyscent-editorial__panel">
       <div class="getanyscent-editorial__media">
@@ -47,6 +47,7 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" },
     { "type": "image_picker", "id": "image", "label": "Image" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Story" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "CRAFTED FOR THOSE WHO KNOW" },

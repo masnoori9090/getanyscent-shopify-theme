@@ -14,18 +14,18 @@
 {%- style -%}
   #shopify-section-{{ section.id }} .countdown-timer {
     padding: 8rem 0;
-    background: #132616;
-    color: #f5f2ed;
+    background: var(--gradient-background);
+    color: rgb(var(--color-foreground));
     text-align: center;
   }
 
   #shopify-section-{{ section.id }} .countdown-timer__heading {
     margin-bottom: 1.6rem;
-    color: #f5f2ed;
+    color: rgb(var(--color-foreground));
   }
 
   #shopify-section-{{ section.id }} .countdown-timer__subheading {
-    color: rgba(245, 242, 237, 0.72);
+    color: rgba(var(--color-foreground), 0.72);
     letter-spacing: 0.18em;
     text-transform: uppercase;
   }
@@ -40,13 +40,13 @@
 
   #shopify-section-{{ section.id }} .countdown-timer__unit {
     padding: 2.4rem;
-    border: 1px solid rgba(142, 134, 106, 0.35);
-    background: rgba(14, 29, 16, 0.45);
+    border: 1px solid rgba(var(--color-foreground), 0.18);
+    background: rgba(var(--color-foreground), 0.04);
   }
 
   #shopify-section-{{ section.id }} .countdown-timer__value {
     display: block;
-    color: #8e866a;
+    color: rgb(var(--color-link));
     font-family: var(--font-heading-family);
     font-size: clamp(3.2rem, 6vw, 5.8rem);
     line-height: 1;
@@ -67,7 +67,7 @@
   }
 {%- endstyle -%}
 
-<section class="countdown-timer reveal" data-end-date="{{ section.settings.end_date }}" id="{{ countdown_id }}">
+<section class="countdown-timer getanyscent-section color-{{ section.settings.color_scheme }} gradient reveal" data-end-date="{{ section.settings.end_date }}" id="{{ countdown_id }}">
   <div class="page-width">
     <p class="countdown-timer__subheading">{{ section.settings.subheading }}</p>
     <h2 class="countdown-timer__heading h1">{{ section.settings.heading }}</h2>
@@ -138,6 +138,12 @@
   "tag": "section",
   "class": "section",
   "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-4"
+    },
     {
       "type": "text",
       "id": "subheading",
