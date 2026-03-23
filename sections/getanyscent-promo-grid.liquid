@@ -1,0 +1,105 @@
+<section class="getanyscent-promo-grid reveal">
+  <div class="getanyscent-shell">
+    {%- if section.settings.heading != blank -%}
+      <div class="getanyscent-heading-stack getanyscent-heading-stack--left">
+        <div class="gold-divider"></div>
+        <h2 class="getanyscent-heading">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="getanyscent-promo-grid__layout">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign promo_target = block.settings.link
+          if promo_target == blank and block.settings.collection != blank
+            assign promo_target = block.settings.collection.url
+          endif
+          if promo_target == blank and block.settings.product != blank
+            assign promo_target = block.settings.product.url
+          endif
+          if promo_target == blank and block.settings.page != blank
+            assign promo_target = block.settings.page.url
+          endif
+          if promo_target == blank
+            assign promo_target = routes.all_products_collection_url
+          endif
+
+          case forloop.index
+            when 1
+              assign fallback_asset = 'gas-ref-story-botanical.jpg' | asset_url
+            when 2
+              assign fallback_asset = 'gas-ref-product-ambre-sacre.jpg' | asset_url
+            else
+              assign fallback_asset = 'gas-ref-product-cuir-de-nuit.jpg' | asset_url
+          endcase
+        -%}
+        <a href="{{ promo_target }}" class="getanyscent-promo-grid__card{% if forloop.first %} getanyscent-promo-grid__card--large{% endif %}" {{ block.shopify_attributes }}>
+          <div class="getanyscent-promo-grid__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1600
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 550, 750, 1100, 1500, 1600'
+              }}
+            {%- else -%}
+              <img src="{{ fallback_asset }}" alt="{{ block.settings.heading | escape }}" width="1400" height="1600" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div class="getanyscent-promo-grid__content">
+            {%- if block.settings.eyebrow != blank -%}
+              <p class="getanyscent-promo-grid__eyebrow">{{ block.settings.eyebrow }}</p>
+            {%- endif -%}
+            <h3>{{ block.settings.heading }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p>{{ block.settings.text }}</p>
+            {%- endif -%}
+            {%- if block.settings.button_label != blank -%}
+              <span class="getanyscent-promo-grid__cta">{{ block.settings.button_label }}</span>
+            {%- endif -%}
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get Any Scent Promo Grid",
+  "tag": "section",
+  "class": "section",
+  "max_blocks": 3,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "SHOP BY CAMPAIGN" }
+  ],
+  "blocks": [
+    {
+      "type": "promo_tile",
+      "name": "Promo tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured collection" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Build the moment" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Lead shoppers into a collection, page, or product with promo-first messaging." },
+        { "type": "collection", "id": "collection", "label": "Collection source" },
+        { "type": "product", "id": "product", "label": "Product source" },
+        { "type": "page", "id": "page", "label": "Page source" },
+        { "type": "url", "id": "link", "label": "Link override" },
+        { "type": "text", "id": "button_label", "label": "CTA label", "default": "Shop now" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get Any Scent Promo Grid",
+      "blocks": [
+        { "type": "promo_tile" },
+        { "type": "promo_tile" },
+        { "type": "promo_tile" }
+      ]
+    }
+  ]
+}
+{% endschema %}

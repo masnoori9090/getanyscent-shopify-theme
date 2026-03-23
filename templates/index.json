@@ -11,149 +11,241 @@
   "sections": {
     "hero": {
       "type": "getanyscent-hero",
+      "blocks": {
+        "promo_primary": {
+          "type": "promo_card",
+          "settings": {
+            "eyebrow": "Weekend campaign",
+            "heading": "Fresh starts and clean signatures",
+            "text": "Spotlight best sellers, new drops, or high-margin gift edits.",
+            "collection": "",
+            "product": "",
+            "link": "",
+            "button_label": "Shop now"
+          }
+        },
+        "promo_secondary": {
+          "type": "promo_card",
+          "settings": {
+            "eyebrow": "Gift guide",
+            "heading": "Sets curated for easy gifting",
+            "text": "Use this space for seasonal launches, bundles, or occasion-led edits.",
+            "collection": "",
+            "product": "",
+            "link": "",
+            "button_label": "Explore gifts"
+          }
+        }
+      },
+      "block_order": [
+        "promo_primary",
+        "promo_secondary"
+      ],
       "settings": {
-        "eyebrow": "New Collection",
-        "heading": "THE ART OF SCENT",
-        "text": "Rare fragrances sourced from the world's finest perfumers.",
+        "eyebrow": "Best-selling collection",
+        "heading": "SHOP THE NEW FRAGRANCE EDIT",
+        "text": "A promo-first storefront for featured launches, giftable best sellers, and quick collection discovery.",
         "button_collection": "frontpage",
         "button_product": "",
-        "button_label": "EXPLORE COLLECTION",
+        "button_label": "SHOP THE DROP",
         "button_link": ""
       }
     },
-    "marquee": {
-      "type": "getanyscent-marquee",
+    "value_bar": {
+      "type": "getanyscent-value-bar",
+      "blocks": {
+        "value_1": {
+          "type": "value",
+          "settings": {
+            "title": "Free GCC shipping",
+            "text": "Fast tracked delivery on qualifying orders."
+          }
+        },
+        "value_2": {
+          "type": "value",
+          "settings": {
+            "title": "Curated gift sets",
+            "text": "Bundle discovery sets and occasion-ready edits."
+          }
+        },
+        "value_3": {
+          "type": "value",
+          "settings": {
+            "title": "Luxury niche brands",
+            "text": "Merchandise hero labels and signature launches."
+          }
+        },
+        "value_4": {
+          "type": "value",
+          "settings": {
+            "title": "Storewide support",
+            "text": "Theme sections stay editable in Shopify admin."
+          }
+        }
+      },
+      "block_order": [
+        "value_1",
+        "value_2",
+        "value_3",
+        "value_4"
+      ],
+      "settings": {}
+    },
+    "promo_grid": {
+      "type": "getanyscent-promo-grid",
+      "blocks": {
+        "promo_tile_1": {
+          "type": "promo_tile",
+          "settings": {
+            "eyebrow": "Collection spotlight",
+            "heading": "Oud and amber signatures",
+            "text": "Drive traffic to a campaign collection with a larger hero tile.",
+            "collection": "frontpage",
+            "product": "",
+            "page": "",
+            "link": "",
+            "button_label": "Shop collection"
+          }
+        },
+        "promo_tile_2": {
+          "type": "promo_tile",
+          "settings": {
+            "eyebrow": "Merchandise faster",
+            "heading": "Layer discovery and gifting",
+            "text": "Use smaller side tiles for bundles, promotions, and category callouts.",
+            "collection": "",
+            "product": "",
+            "page": "",
+            "link": "",
+            "button_label": "Learn more"
+          }
+        },
+        "promo_tile_3": {
+          "type": "promo_tile",
+          "settings": {
+            "eyebrow": "Editorial page",
+            "heading": "Tell the story behind the scent",
+            "text": "Promote your about page, journal, or a launch campaign in one click.",
+            "collection": "",
+            "product": "",
+            "page": "",
+            "link": "",
+            "button_label": "Read more"
+          }
+        }
+      },
+      "block_order": [
+        "promo_tile_1",
+        "promo_tile_2",
+        "promo_tile_3"
+      ],
       "settings": {
-        "text": "NICHE FRAGRANCES • ARTISAN CRAFTED • WORLDWIDE SHIPPING • SINCE 2024 •"
+        "heading": "SHOP BY CAMPAIGN"
       }
     },
     "featured_collection": {
       "type": "getanyscent-featured-collection",
       "settings": {
-        "heading": "CURATED SELECTIONS",
+        "heading": "TRENDING NOW",
         "collection": "frontpage",
-        "products_to_show": 3,
+        "products_to_show": 4,
         "show_vendor": true,
         "show_price": true,
-        "card_cta_label": "Shop Now",
+        "card_cta_label": "Quick shop",
         "view_all_link": "",
-        "view_all_label": "VIEW ALL"
+        "view_all_label": "SHOP ALL PRODUCTS"
+      }
+    },
+    "bestsellers": {
+      "type": "getanyscent-bestsellers",
+      "settings": {
+        "heading": "BEST SELLERS",
+        "collection": "frontpage",
+        "products_to_show": 4,
+        "show_vendor": true,
+        "default_size_label": "Signature size",
+        "add_to_bag_label": "ADD TO BAG",
+        "view_product_label": "VIEW PRODUCT",
+        "view_all_link": "",
+        "view_all_label": "VIEW ALL BEST SELLERS"
       }
     },
     "story": {
       "type": "getanyscent-editorial",
       "settings": {
-        "eyebrow": "Our Story",
-        "heading": "CRAFTED FOR THOSE WHO KNOW",
-        "text": "<p>Every fragrance in our collection has been carefully sourced from independent perfumers who share our obsession with quality. We do not follow trends, we seek out timeless compositions that become part of your identity.</p><p>From the oud forests of Southeast Asia to the rose fields of Grasse, each ingredient tells a story of craft, patience, and devotion to the art of perfumery.</p>",
+        "eyebrow": "Brand feature",
+        "heading": "PROMOTIONAL STORYTELLING WITH PRODUCT FOCUS",
+        "text": "<p>Shift the homepage from static branding to conversion-led merchandising. Showcase launches, limited collections, and campaign copy without giving up the premium Get Any Scent identity.</p>",
         "page": "",
-        "link_label": "LEARN MORE →",
+        "link_label": "READ THE STORY",
         "link": ""
       }
     },
-    "bestsellers": {
-      "type": "getanyscent-bestsellers",
+    "journal": {
+      "type": "getanyscent-journal",
       "blocks": {
-        "product_card_taL6dG": {
-          "type": "product_card",
+        "journal_1": {
+          "type": "article",
           "settings": {
-            "product": "",
-            "brand": "",
-            "title": "",
-            "size": "",
-            "price": "",
+            "category": "Journal",
+            "date": "March 2026",
+            "title": "How to build a launch page that still feels elevated",
+            "excerpt": "Merchandising-led layouts can still feel premium when the hierarchy is disciplined and the imagery does the heavy lifting.",
+            "link": ""
+          }
+        },
+        "journal_2": {
+          "type": "article",
+          "settings": {
+            "category": "Retail",
+            "date": "March 2026",
+            "title": "Three ways to merchandise giftable fragrance collections",
+            "excerpt": "Bundle discovery, urgency, and promo support without cluttering the storefront.",
+            "link": ""
+          }
+        },
+        "journal_3": {
+          "type": "article",
+          "settings": {
+            "category": "Campaigns",
+            "date": "March 2026",
+            "title": "Why promo tiles work better when they are genuinely useful",
+            "excerpt": "Use homepage real estate for launches, gifting, and category intent instead of decorative fillers.",
             "link": ""
           }
         }
       },
       "block_order": [
-        "product_card_taL6dG"
+        "journal_1",
+        "journal_2",
+        "journal_3"
       ],
       "settings": {
-        "heading": "MOST LOVED",
-        "collection": "frontpage",
-        "products_to_show": 6,
-        "show_vendor": true,
-        "default_size_label": "Signature Size",
-        "add_to_bag_label": "ADD TO BAG",
-        "view_product_label": "VIEW PRODUCT",
-        "view_all_link": "",
-        "view_all_label": "SHOP ALL BESTSELLERS"
-      }
-    },
-    "instagram": {
-      "type": "instagram-feed",
-      "blocks": {
-        "instagram_1": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_2": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_3": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_4": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_5": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        },
-        "instagram_6": {
-          "type": "image",
-          "settings": {
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "instagram_1",
-        "instagram_2",
-        "instagram_3",
-        "instagram_4",
-        "instagram_5",
-        "instagram_6"
-      ],
-      "settings": {
-        "heading": "FOLLOW @GETANYSCENT",
-        "metaobject_definition_handle": "",
-        "metaobject_limit": 6
+        "heading": "FROM THE JOURNAL",
+        "blog": "",
+        "articles_to_show": 3
       }
     },
     "newsletter": {
       "type": "getanyscent-newsletter",
       "settings": {
-        "eyebrow": "Stay Connected",
-        "heading": "JOIN THE INNER CIRCLE",
-        "text": "Be the first to discover new arrivals and exclusive offers.",
-        "placeholder": "Your email address",
-        "button_label": "SUBSCRIBE",
-        "success_message": "WELCOME TO THE INNER CIRCLE"
+        "eyebrow": "Newsletter",
+        "heading": "GET EARLY ACCESS TO NEW RELEASES",
+        "text": "Capture email with a promo-driven message, launch alerts, and private offers.",
+        "placeholder": "Enter your email",
+        "button_label": "SIGN UP",
+        "success_message": "YOU'RE ON THE LIST"
       }
     }
   },
   "order": [
     "hero",
-    "marquee",
+    "value_bar",
+    "promo_grid",
     "featured_collection",
-    "story",
     "bestsellers",
-    "instagram",
+    "story",
+    "journal",
     "newsletter"
   ]
 }
