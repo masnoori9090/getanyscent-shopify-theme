@@ -81,28 +81,6 @@
         "view_all_label": "SHOP ALL BESTSELLERS"
       }
     },
-    "journal": {
-      "type": "getanyscent-journal",
-      "blocks": {
-        "article_AU7Xf7": {
-          "type": "article",
-          "settings": {
-            "image": "shopify://shop_images/glass-with-iced-red-beverage-reflects-on-a-white-table.jpg",
-            "category": "Journal",
-            "date": "March 2026",
-            "title": "How to Build a Fragrance Wardrobe That Lasts Beyond the Season",
-            "excerpt": "A considered approach to daytime freshness, evening depth, and signatures that leave a refined trail.",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "article_AU7Xf7"
-      ],
-      "settings": {
-        "heading": "THE JOURNAL"
-      }
-    },
     "instagram": {
       "type": "instagram-feed",
       "blocks": {
@@ -152,7 +130,9 @@
         "instagram_6"
       ],
       "settings": {
-        "heading": "FOLLOW @GETANYSCENT"
+        "heading": "FOLLOW @GETANYSCENT",
+        "metaobject_definition_handle": "",
+        "metaobject_limit": 6
       }
     },
     "newsletter": {
@@ -173,7 +153,6 @@
     "featured_collection",
     "story",
     "bestsellers",
-    "journal",
     "instagram",
     "newsletter"
   ]
