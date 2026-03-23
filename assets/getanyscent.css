@@ -101,14 +101,13 @@ button {
 }
 
 body.page-transition-preload .content-for-layout {
-  opacity: 0;
-  transform: translateY(1.8rem);
+  opacity: 1;
+  transform: none;
 }
 
 body.is-page-ready .content-for-layout {
   opacity: 1;
   transform: none;
-  transition: opacity 0.55s ease, transform 0.55s ease;
 }
 
 body.is-page-leaving .content-for-layout {

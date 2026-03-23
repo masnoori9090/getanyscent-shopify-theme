@@ -356,9 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const reveals = document.querySelectorAll(
-    '.reveal, .shopify-section, .section-header, .card-wrapper, .product-card-wrapper, .multicolumn-card'
-  );
+  const reveals = document.querySelectorAll('.reveal, .section-header, .card-wrapper, .product-card-wrapper, .multicolumn-card');
 
   const observer = new IntersectionObserver(
     (entries) => {
